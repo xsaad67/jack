@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\CrawlLinks;
 use Goutte;
 use Image;
+use Carbon\Carbon;
+
 
 ini_set('max_execution_time', 4890);
 
