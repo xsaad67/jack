@@ -8,7 +8,6 @@ use Goutte;
 use Image;
 use Carbon\Carbon;
 
-
 ini_set('max_execution_time', 4890);
 
 class CrawlLinksController extends Controller
@@ -61,8 +60,5 @@ class CrawlLinksController extends Controller
 
     }
 
-    public function image(){
-    	return Image::make(public_path('images/temp1.jpg'))->greyscale()->response('png');
-    	// echo $img->response();
-    }
+   
 }
