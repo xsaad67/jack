@@ -14,6 +14,7 @@ class CreateQuotesTable extends Migration
     public function up()
     {
         Schema::create('quotes', function (Blueprint $table) {
+
             $table->increments('id');
             $table->text('body');
             $table->string('slug')->nullable();
@@ -22,6 +23,7 @@ class CreateQuotesTable extends Migration
             $table->string('link');
             $table->string('source');
             $table->timestamps();
+            
         });
     }
 
