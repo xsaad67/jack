@@ -15,6 +15,7 @@
         "laravel/framework": "5.7.*",
         "laravel/tinker": "^1.0",
         "orangehill/iseed": "^2.6",
+        "stil/gd-text": "^1.1",
         "weidner/goutte": "^1.1"
     },
     "require-dev": {
@@ -39,6 +40,9 @@
         "psr-4": {
             "App\\": "app/"
         },
+        "files": [
+            "app/helpers.php"
+        ],
         "classmap": [
             "database/seeds",
             "database/factories"

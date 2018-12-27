@@ -14,6 +14,7 @@ class CreateCrawlLinksTable extends Migration
     public function up()
     {
         Schema::create('crawl_links', function (Blueprint $table) {
+
             $table->increments('id');
             $table->string("link")->unique();
             $table->string("website")->nullable();
@@ -21,6 +22,7 @@ class CreateCrawlLinksTable extends Migration
             $table->boolean("isCrawled")->default(0);
             $table->string('pageNo')->nullable();
             $table->timestamps();
+            
         });
     }
 
