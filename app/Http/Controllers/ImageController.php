@@ -3,12 +3,35 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Image;
 use GDText\Box;
 use GDText\Color;
 
+ini_set('max_execution_time',4000);
+
 class ImageController extends Controller
 {
+
+
+	public function addAlphaColor(){
+
+		$toMask = storage_path('app\public\tomask.jpg');
+
+		$img = imagecreatefromjpeg($toMask);
+		$w = imagesx($img);
+		$h = imagesy($img);
+		imagesavealpha($img, true);
+
+		$img2 = imagecreatetruecolor($w, $h);
+		imagefill($img2, 0, 0, imagecolorallocatealpha($img, 86, 69, 1, 30));
+
+		imagecopy($img, $img2, 0, 0, 0, 0, $w, $h);
+
+		imagepng($img, public_path("images/new.png"));
+		imagedestroy($img);
+		imagedestroy($img2);
+	}
+
      public function image(){
     
   	
@@ -58,5 +81,5 @@ class ImageController extends Controller
 
 		// return $img2->response();
 
-  //   }
+    }
 }

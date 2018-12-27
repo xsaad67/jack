@@ -12,6 +12,6 @@
 */
 
 Route::get('/','CrawlController@index');
-Route::get('/image','CrawlLinksController@image');
+Route::get('/image','ImageController@addAlphaColor');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
