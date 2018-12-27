@@ -15,6 +15,10 @@ class CreateImageTemplatesTable extends Migration
     {
         Schema::create('image_templates', function (Blueprint $table) {
             $table->increments('id');
+            $table->text('imageName');
+            $table->text('keyword');
+            $table->boolean('isGray')->nullable();
+            $table->text('grayImage')->nullable();
             $table->timestamps();
         });
     }
