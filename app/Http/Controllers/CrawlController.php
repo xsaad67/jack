@@ -15,10 +15,12 @@ class CrawlController extends Controller
    public function index(){
    		
 
-         $crawlLinks = CrawlLinks::where("isCrawled",0)->take(10)->get();
+         $crawlLinks = CrawlLinks::where("link",'https://www.brainyquote.com/authors/william_shakespeare')->get();
+
+         return $crawlLinks;
 
 
-         foreach($crawlLinks as $crawlLink){
+      foreach($crawlLinks as $crawlLink){
 
         $crawlLinks = CrawlLinks::where("isCrawled",0)->take(1000)->get();
         foreach($crawlLinks as $crawlLink){
@@ -97,5 +99,6 @@ class CrawlController extends Controller
          
          }
    		
+      }
    }
 }
