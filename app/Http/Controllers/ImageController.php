@@ -49,6 +49,10 @@ class ImageController extends Controller
 	// $backgroundColor = imagecolorallocate($im, 0, 18, 64);
 	// imagefill($im, 0, 0, $backgroundColor);
 	// 
+	// 
+	
+
+	$str = "Good, better, best. Never let it rest. 'Til your good is better and your better is best. hello world";
 	
 	$im = imagecreatefrompng (public_path("images/new.png"));
 
@@ -57,11 +61,12 @@ class ImageController extends Controller
 	$box->setFontFace($fontLocation); // http://www.dafont.com/franchise.font
 	$box->setFontColor(new Color(255, 255, 255));
 	$box->setTextShadow(new Color(0, 0, 0, 50), 1,1);
-	$box->setFontSize(30);
-	$box->setBox(30, 40, 550, 400);
-	$box->setTextAlign('center', 'center');
-	$box->draw("A clever conjurer is welcome anywhere\n \n ~Nothing");
+	$box->setFontSize(40);
+	$box->setBox(40, 25, 550, 400);
+	$box->setTextAlign('center', 'top');
+	$box->draw($str."\n \n ~Nothing \n Mynameofcompany.com");
 
+	
 
 	header("Content-type: image/png");
 	imagepng($im);

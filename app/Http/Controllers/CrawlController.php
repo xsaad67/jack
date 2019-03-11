@@ -13,9 +13,6 @@ class CrawlController extends Controller
    		
          $crawlLinks = CrawlLinks::where("isCrawled",0)->take(10)->get();
 
-         // $dt = \Carbon\Carbon::parse('December 9, 1936')->format('Y-m-d H:i:s');
-
-         // dd($dt);
 
          foreach($crawlLinks as $crawlLink){
 

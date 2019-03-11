@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/','CrawlController@index');
+Route::get('/','QuoteController@index');
 
 Route::get('/create-image','ImageController@addAlphaColor');
 Route::get('/image','ImageController@image');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/topics','CrawlLinksController@topics');
