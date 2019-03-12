@@ -71,9 +71,9 @@
         document.querySelector('body').classList.add('loaded');
       });
     </script>
-    <link href="assets/css/theme-saas.css" rel="stylesheet" type="text/css" media="all" />
-    <link rel="preload" as="font" href="assets/fonts/Inter-UI-upright.var.woff2" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" as="font" href="assets/fonts/Inter-UI.var.woff2" type="font/woff2" crossorigin="anonymous">
+    <link href="/assets/css/theme-saas.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="preload" as="font" href="/assets/fonts/Inter-UI-upright.var.woff2" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" as="font" href="/assets/fonts/Inter-UI.var.woff2" type="font/woff2" crossorigin="anonymous">
   </head>
 
   <body>
@@ -108,7 +108,7 @@
         <div class="container">
           <div class="col flex-fill px-0 d-flex justify-content-between">
             <a class="navbar-brand mr-0 fade-page" href="index-2.html">
-              <img src="assets/img/logo.svg" alt="Leap">
+              <img src="/assets/img/logo.svg" alt="Leap">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
               <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -441,7 +441,7 @@
       <div class="container">
         <div class="row align-items-center justify-content-between o-hidden">
           <div class="col-md-6 order-sm-2 mb-5 mb-sm-0" data-aos="fade-left">
-            <img src="assets/img/saas-3.svg" alt="Image">
+            <img src="/assets/img/saas-3.svg" alt="Image">
           </div>
           <div class="col-md-6 pr-xl-5 order-sm-1">
             <h1 class="display-4">Build it with Leap</h1>
@@ -607,7 +607,7 @@
                   <div class="popover-hotspot bg-primary-2" style="top: 25%; left: 10%;" data-toggle="popover" title="Hotspot title" data-content="And here's some amazing content. It's very engaging. Right?"></div>
                   <div class="popover-hotspot bg-primary-2" style="top: 10%; left: 90%;" data-toggle="popover" title="Hotspot title" data-content="And here's some amazing content. It's very engaging. Right?"></div>
                   <div class="popover-hotspot bg-primary-2" style="top: 90%; left: 20%;" data-toggle="popover" title="Hotspot title" data-content="And here's some more amazing content. It's very engaging. Right?"></div>
-                  <img src="assets/img/saas-1.jpg" alt="Image" class="rounded border shadow-lg">
+                  <img src="/assets/img/saas-1.jpg" alt="Image" class="rounded border shadow-lg">
                 </div>
               </div>
               <div class="tab-pane fade" id="saas-tab-2" role="tabpanel" aria-labelledby="saas-tab-2">
@@ -615,7 +615,7 @@
                   <div class="popover-hotspot bg-primary-2" style="top: 25%; left: 90%;" data-toggle="popover" title="Hotspot title" data-content="And here's some amazing content. It's very engaging. Right?"></div>
                   <div class="popover-hotspot bg-primary-2" style="top: 90%; left: 10%;" data-toggle="popover" title="Hotspot title" data-content="And here's some amazing content. It's very engaging. Right?"></div>
                   <div class="popover-hotspot bg-primary-2" style="top: 30%; left: 60%;" data-toggle="popover" title="Hotspot title" data-content="And here's some more amazing content. It's very engaging. Right?"></div>
-                  <img src="assets/img/saas-2.jpg" alt="Image" class="rounded border shadow-lg">
+                  <img src="/assets/img/saas-2.jpg" alt="Image" class="rounded border shadow-lg">
                 </div>
               </div>
               <div class="tab-pane fade" id="saas-tab-3" role="tabpanel" aria-labelledby="saas-tab-3">
@@ -623,7 +623,7 @@
                   <div class="popover-hotspot bg-primary-2" style="top: 2%; left: 2%;" data-toggle="popover" title="Hotspot title" data-content="And here's some amazing content. It's very engaging. Right?"></div>
                   <div class="popover-hotspot bg-primary-2" style="top: 35%; left: 95%;" data-toggle="popover" title="Hotspot title" data-content="And here's some amazing content. It's very engaging. Right?"></div>
                   <div class="popover-hotspot bg-primary-2" style="top: 90%; left: 50%;" data-toggle="popover" title="Hotspot title" data-content="And here's some more amazing content. It's very engaging. Right?"></div>
-                  <img src="assets/img/saas-3.jpg" alt="Image" class="rounded border shadow-lg">
+                  <img src="/assets/img/saas-3.jpg" alt="Image" class="rounded border shadow-lg">
                 </div>
               </div>
             </div>
@@ -637,7 +637,7 @@
           <div class="col-xl-5 col-lg-6" data-aos="fade-right">
             <div class="row justify-content-center">
               <div class="col-md-8 col-lg mb-4 mb-lg-0">
-                <img src="assets/img/saas-2.svg" alt="Image">
+                <img src="/assets/img/saas-2.svg" alt="Image">
               </div>
             </div>
           </div>
@@ -748,7 +748,7 @@
             </div>
           </div>
           <div class="col-md-6" data-aos="fade-left">
-            <img src="assets/img/saas-4.svg" alt="Image">
+            <img src="/assets/img/saas-4.svg" alt="Image">
           </div>
         </div>
       </div>
@@ -775,13 +775,13 @@
                 <tr>
                   <th scope="col"></th>
                   <th scope="col" class="bg-primary-alt">
-                    <img src="assets/img/logo.svg" alt="Image">
+                    <img src="/assets/img/logo.svg" alt="Image">
                   </th>
                   <th scope="col">
-                    <img src="assets/img/dropbox.svg" alt="Image">
+                    <img src="/assets/img/dropbox.svg" alt="Image">
                   </th>
                   <th scope="col">
-                    <img src="assets/img/invision.svg" alt="Image">
+                    <img src="/assets/img/invision.svg" alt="Image">
                   </th>
                 </tr>
               </thead>
@@ -989,7 +989,7 @@
             <div data-flickity='{ "imagesLoaded": true, "wrapAround": true }'>
               <div class="carousel-cell mx-md-4">
                 <div class="card card-body flex-row py-4">
-                  <img src="assets/img/avatars/male-2.jpg" alt="Avatar" class="avatar avatar-lg">
+                  <img src="/assets/img/avatars/male-2.jpg" alt="Avatar" class="avatar avatar-lg">
                   <div class="ml-3">
                     <h4>
                       &ldquo;The team were only too happy to help me getting started.&rdquo;
@@ -1003,7 +1003,7 @@
               </div>
               <div class="carousel-cell mx-md-4">
                 <div class="card card-body flex-row py-4">
-                  <img src="assets/img/avatars/male-1.jpg" alt="Avatar" class="avatar avatar-lg">
+                  <img src="/assets/img/avatars/male-1.jpg" alt="Avatar" class="avatar avatar-lg">
                   <div class="ml-3">
                     <h4>
                       &ldquo;Once again, my expectations have been surpassed – Bravo!&rdquo;
@@ -1017,7 +1017,7 @@
               </div>
               <div class="carousel-cell mx-md-4">
                 <div class="card card-body flex-row py-4">
-                  <img src="assets/img/avatars/female-4.jpg" alt="Avatar" class="avatar avatar-lg">
+                  <img src="/assets/img/avatars/female-4.jpg" alt="Avatar" class="avatar avatar-lg">
                   <div class="ml-3">
                     <h4>
                       &ldquo;What usually takes at least 2 or 3 weeks was reduced to 4 days.&rdquo;
@@ -1038,7 +1038,7 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-xl-6 col-lg-7 col-md-8 mb-lg-n7 layer-2">
-            <img src="assets/img/saas-1.svg" alt="Image" data-aos="fade-up">
+            <img src="/assets/img/saas-1.svg" alt="Image" data-aos="fade-up">
           </div>
         </div>
       </div>
@@ -1317,7 +1317,7 @@
     <!-- Typed text (animated typing effect)-->
     <script type="text/javascript" src="../unpkg.com/typed.js%402.0.10/lib/typed.min.js"></script>
     <!-- Required theme scripts (Do not remove) -->
-    <script type="text/javascript" src="assets/js/theme.js"></script>
+    <script type="text/javascript" src="/assets/js/theme.js"></script>
 
     <script type="text/javascript">
       // This script appears only in the demo - it disables forms with no action attribute to prevent 

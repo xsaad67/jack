@@ -13,6 +13,10 @@
 
 Route::get('/','QuoteController@index');
 
+Route::get('/q',function(){
+	return view("layouts.main");
+});
+
 Route::get('/create-image','ImageController@addAlphaColor');
 Route::get('/image','ImageController@image');
 Auth::routes();
