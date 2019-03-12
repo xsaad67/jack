@@ -17,16 +17,11 @@ class QuoteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-
-        $quotes = Quote::where('id',">",260)->get();
-        
-        foreach ($quotes as $quote) {
-            $this->savingTags($quote->tags,$quote->id);
-        }
-
+       $quotes = Quote::inRandomOrder()->paginate(20);
+       return view('quotes.index',compact('quotes'));
+       
     }
     
-
 
     public function savingTags($tags,$id){
         $tags = explode(",",$tags);
