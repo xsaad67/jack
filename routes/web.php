@@ -24,3 +24,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/topics','CrawlLinksController@topics');
 Route::get('/authors','CrawlLinksController@author');
+
+Route::get('templateim','ImageController@template');
