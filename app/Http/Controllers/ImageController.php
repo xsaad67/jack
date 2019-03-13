@@ -16,7 +16,8 @@ class ImageController extends Controller
 
 	public function addAlphaColor(){
 
-		$toMask = storage_path('app\public\tomask1.jpg');
+		$toMask = public_path('assets\img\desktop-app8.jpg');
+
 
 		$img = imagecreatefromjpeg($toMask);
 		$w = imagesx($img);
@@ -24,13 +25,16 @@ class ImageController extends Controller
 		imagesavealpha($img, true);
 
 		$img2 = imagecreatetruecolor($w, $h);
-		imagefill($img2, 0, 0, imagecolorallocatealpha($img, 86, 69, 1, 40));
+		imagefill($img2, 0, 0, imagecolorallocatealpha($img, 21, 20, 20, 60));
 
 		imagecopy($img, $img2, 0, 0, 0, 0, $w, $h);
 
 		imagepng($img, public_path("images/new.png"));
-		imagedestroy($img);
-		imagedestroy($img2);
+		// imagedestroy($img);
+		// imagedestroy($img2);
+
+		header("Content-type: image/png");
+		imagepng($img);
 
 		// $img = Image::make($toMask);
 		// $width = $img->width();
@@ -52,7 +56,7 @@ class ImageController extends Controller
 	// 
 	
 
-	$str = "Good, better, best. Never let it rest. 'Til your good is better and your better is best. hello world";
+	$str = "I would sit on the street corners in my hometown of Indianola, Mississippi, and I would play. And, generally, I would start playing gospel songs. People would come by on the street - ";
 	
 	$im = imagecreatefrompng (public_path("images/new.png"));
 
@@ -62,9 +66,10 @@ class ImageController extends Controller
 	$box->setFontColor(new Color(255, 255, 255));
 	$box->setTextShadow(new Color(0, 0, 0, 50), 1,1);
 	$box->setFontSize(40);
-	$box->setBox(40, 25, 550, 400);
-	$box->setTextAlign('center', 'top');
-	$box->draw($str."\n \n ~Nothing \n Mynameofcompany.com");
+	$box->setBox(200, 200, 750, 400);
+	$box->setBackgroundColor(new Color(21, 20, 20, 60));
+	$box->setTextAlign('center', 'center');
+	$box->draw($str."\n ~Nothing \n Mynameofcompany.com");
 
 	
 
