@@ -84,7 +84,7 @@ class ImageController extends Controller
 
 	public function template(){
 
-		$apiUrl = "https://pixabay.com/get/ee36b70720f11c22d2524518b74d479ee57fead21aac104490f2c57ea3efb4ba_1280.jpg";
+		$apiUrl = "https://pixabay.com/api/?key=11868873-c46ec2233b9e391b1b7e9e0c5&q=inspiration";
 		$this->downloadImage("https://pixabay.com/get/ee36b70720f11c22d2524518b74d479ee57fead21aac104490f2c57ea3efb4ba_1280.jpg");
 
 
