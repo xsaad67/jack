@@ -17,8 +17,11 @@ class QuoteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-       $quotes = Quote::inRandomOrder()->paginate(20);
-       return view('quotes.index',compact('quotes'));
+
+     $quotes = Quote::where("id" ,">",10506)->get();
+     foreach($quotes as $quote){
+        $this->savingTags($quote->tags,$quote->id);
+     }
        
     }
     

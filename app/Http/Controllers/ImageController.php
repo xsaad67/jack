@@ -8,6 +8,7 @@ use GDText\Box;
 use GDText\Color;
 use Intervention\Image\Filters\DemoFilter;
 use App\Tags;
+use App\Quote;
 
 ini_set('max_execution_time',4000);
 
@@ -37,27 +38,30 @@ class ImageController extends Controller
 
 	public function image(){
 
-		$str = "I would sit on the street corners in my hometown of Indianola, Mississippi, and I would play. And, generally, I would start playing gospel songs. People would come by on the street - ";
-		$im = imagecreatefrompng (public_path("images/new.png"));
-		$box = new Box($im);
-		$fontLocation=storage_path('app\public\fonts\kaushan.otf');
-		$box->setFontFace($fontLocation); 
-		$box->setFontColor(new Color(255, 255, 255));
-		$box->setTextShadow(new Color(0, 0, 0, 50), 1,1);
-		$box->setFontSize(40);
-		$box->setBox(200, 200, 750, 400);
-		$box->setBackgroundColor(new Color(21, 20, 20, 60));
-		$box->setTextAlign('center', 'center');
-		$box->draw($str."\n ~ Nothing \n Mynameofcompany.com");
-		header("Content-type: image/png");
-		imagepng($im);
+		$quote = Quote::where(\DB::raw(' length(body)'),'<=',200)->count();
+		return $quote;
+
+		// $str = "I would sit on the street corners in my hometown of Indianola, Mississippi, and I would play. And, generally, I would start playing gospel songs. People would come by on the street - ";
+		// $im = imagecreatefromjpeg(public_path("assets/img/article-1.jpg"));
+		// $box = new Box($im);
+		// $fontLocation=storage_path('app\public\fonts\kaushan.otf');
+		// $box->setFontFace($fontLocation); 
+		// $box->setFontColor(new Color(255, 255, 255));
+		// $box->setTextShadow(new Color(0, 0, 0, 50), 1,1);
+		// $box->setFontSize(40);
+		// $box->setBox(200, 200, 750, 400);
+		// $box->setBackgroundColor(new Color(21, 20, 20, 60));
+		// $box->setTextAlign('center', 'center');
+		// $box->draw($str."\n ~ Nothing \n Mynameofcompany.com");
+		// header("Content-type: image/png");
+		// imagepng($im);
 	}
 
 
 
 
 
-	public function downloadImage($imageUrl){
+	public function downloadImage($imageUrl,$imagePath){
 
 	 	$ch = curl_init();
 	    curl_setopt($ch, CURLOPT_URL, $imageUrl); 
@@ -76,23 +80,44 @@ class ImageController extends Controller
 
 		imagecopy($img, $img2, 0, 0, 0, 0, $w, $h);
 
-		imagepng($img, public_path("images/new.png"));
-		header("Content-type: image/png");
-		imagepng($img);
+		$s = imagepng($img, $imagePath);
+		return $s;
+		
 
 	}
 
+	public function downloadImageWithoutGrey($imageUrl,$imagePath){
+		$im = Image::make($imageUrl);
+		$s = $im->save($imagePath);
+		return $s;
+	}
+
 	public function template(){
+
+
+		
+
 
 		// $apiUrl = "https://pixabay.com/api/?key=11868873-c46ec2233b9e391b1b7e9e0c5&q=nature&colors=grayscale";
 		
 		// session()->put("images",json_decode(file_get_contents($apiUrl)) );
 
-		dd(session()->get("images"));
-		// $maxId = \App\ImageTemplates::max('id') +1;
-		// return newGuid()."_".$maxId.".png";
+		foreach(session()->get("images")->hits as $image){
+			
+			$maxId = \App\ImageTemplates::max('id') +1;
+			$fileName = newGuid()."_".$maxId.".png";
+			$imagePath=public_path("images/templates/".$fileName);
 
-		// $this->downloadImage("https://pixabay.com/get/ee36b70720f11c22d2524518b74d479ee57fead21aac104490f2c57ea3efb4ba_1280.jpg");
+			if($this->downloadImageWithoutGrey($image->largeImageURL,$imagePath)){
+				$imageTag = new \App\ImageTemplates();
+				$imageTag->imageName = $fileName;
+				$imageTag->keyword = "nature";
+				$imageTag->isGray =1;
+				$imageTag->save();
+			}
+
+		}
+
 
 
 	}
