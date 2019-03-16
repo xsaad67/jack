@@ -26,3 +26,5 @@ Route::get('/topics','CrawlLinksController@topics');
 Route::get('/authors','CrawlLinksController@author');
 
 Route::get('templateim','ImageController@template');
+
+Route::get('/template/create','ImageTemplatesController@create');
