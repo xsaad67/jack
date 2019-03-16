@@ -14,5 +14,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CrawlLinksTableSeeder::class);
         $this->call(TagsTableSeeder::class);
         $this->call(TaggablesTableSeeder::class);
+        $this->call(PostsTableSeeder::class);
     }
 }

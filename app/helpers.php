@@ -23,4 +23,19 @@ function newGuid() {
         substr($s,20); 
     return $guidText;
 }
+
+
+function savingTags($tags,$id){
+        $tags = explode(",",$tags);
+        foreach($tags as $tag){
+            $tag =  \App\Tag::firstOrCreate([ 'name'=>strtolower($tag) ]);
+            if($tag->id){
+                $taggable = new \App\Taggable();
+                $taggable->tag_id = $tag->id;
+                $taggable->taggable_id = $id;
+                $taggable->taggable_type = "App\Quote";
+                $taggable->save();
+            }
+        }
+    }
 ?>

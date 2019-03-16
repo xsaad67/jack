@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Quote;
+use App\Post;
 use Illuminate\Http\Request;
 use Goutte;
+use Illuminate\Database\Eloquent\Builder;
 
+use GDText\Box;
+use GDText\Color;
 
 ini_set('max_execution_time', 6890);
 
@@ -17,27 +20,29 @@ class QuoteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
+        // return Post::count();
+         // return Post::quotes()->where(\DB::raw(' length(body)'),'<=',200)->count();
 
-     $quotes = Quote::where("id" ,">",10506)->get();
-     foreach($quotes as $quote){
-        $this->savingTags($quote->tags,$quote->id);
-     }
-       
-    }
-    
+        $post = Post::quotes()
+                    ->where(\DB::raw(' length(body)'),'<=',200)
+                    ->whereDoesntHave('media')
+                    ->inRandomOrder()->first();
+        
+        $str = $post->body;
+        $im = imagecreatefromjpeg(public_path("images/templates/4.jpg"));
+        $box = new Box($im);
+        $fontLocation=storage_path('app\public\fonts\quantify.ttf');
+        $box->setFontFace($fontLocation); 
+        $box->setFontColor(new Color(255, 255, 255));
+        $box->setTextShadow(new Color(0, 0, 0, 50), 1,1);
+        $box->setFontSize(60);
+        $box->setBox(250, 200, 700, 400);
+        $box->setBackgroundColor(new Color(21, 20, 20, 35));
+        $box->setTextAlign('center', 'center');
+        $box->draw($str."\n ~ Nothing \n Mynameofcompany.com");
+        header("Content-type: image/png");
+        imagepng($im);
 
-    public function savingTags($tags,$id){
-        $tags = explode(",",$tags);
-        foreach($tags as $tag){
-            $tag =  \App\Tag::firstOrCreate([ 'name'=>strtolower($tag) ]);
-            if($tag->id){
-                $taggable = new \App\Taggable();
-                $taggable->tag_id = $tag->id;
-                $taggable->taggable_id = $id;
-                $taggable->taggable_type = "App\Quote";
-                $taggable->save();
-            }
-        }
     }
 
     /**

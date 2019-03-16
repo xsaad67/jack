@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Goutte;
 use App\CrawlLinks;
 use App\Author;
-use App\Quote;
+use App\Post;
 
 ini_set('max_execution_time', 6890);
 
@@ -74,7 +74,7 @@ class CrawlController extends Controller
 	            	if($node->filter("a.b-qt")->count() > 0){
 
 		            	$quoteLink = $node->filter("a.b-qt")->first();
-			  			$quote = Quote::firstOrNew(['link'=>$quoteLink->attr("href")]);
+			  			$quote = Post::firstOrNew(['link'=>$quoteLink->attr("href")]);
 		            	$quote->body = $quoteLink->text();
 		            	$quote->author_id = $authorId;
 		            	$quote->source = "brainyquote.com";
