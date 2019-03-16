@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Builder;
 use GDText\Box;
 use GDText\Color;
 
+use App\ImageTemplates;
+
 ini_set('max_execution_time', 6890);
 
 class QuoteController extends Controller
@@ -20,8 +22,20 @@ class QuoteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        // return Post::count();
-         // return Post::quotes()->where(\DB::raw(' length(body)'),'<=',200)->count();
+
+        $fontsArray = [];
+        $files = \File::files(storage_path('app/public/fonts'));
+
+        foreach($files as $file){
+            $fontsArray[]=$file->getFileName();
+        }
+
+        $fontName = $fontsArray[array_rand($fontsArray)];
+
+
+        // dd("yes");
+        
+        $templateName = storage_path('app/public/templates/'.ImageTemplates::inRandomOrder()->first()->imageName);
 
         $post = Post::quotes()
                     ->where(\DB::raw(' length(body)'),'<=',200)
@@ -29,15 +43,15 @@ class QuoteController extends Controller
                     ->inRandomOrder()->first();
         
         $str = $post->body;
-        $im = imagecreatefromjpeg(public_path("images/templates/4.jpg"));
+        $im = imagecreatefrompng($templateName);
         $box = new Box($im);
-        $fontLocation=storage_path('app\public\fonts\quantify.ttf');
+        $fontLocation=storage_path("app/public/fonts/".$fontName);
         $box->setFontFace($fontLocation); 
         $box->setFontColor(new Color(255, 255, 255));
         $box->setTextShadow(new Color(0, 0, 0, 50), 1,1);
-        $box->setFontSize(60);
-        $box->setBox(250, 200, 700, 400);
-        $box->setBackgroundColor(new Color(21, 20, 20, 35));
+        $box->setFontSize(50);
+        $box->setBox(240, 200, 700, 400);
+        $box->setBackgroundColor(new Color(21, 20, 20, 30));
         $box->setTextAlign('center', 'center');
         $box->draw($str."\n ~ Nothing \n Mynameofcompany.com");
         header("Content-type: image/png");
