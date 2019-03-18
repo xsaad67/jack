@@ -36,7 +36,7 @@ class ThreadController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $thread = new Thread();
     }
 
     /**
@@ -47,9 +47,7 @@ class ThreadController extends Controller
      */
     public function show(Thread $thread)
     {
-
-        return $thread;  
-              
+        return $thread;
     }
 
     /**

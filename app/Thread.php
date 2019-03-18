@@ -41,7 +41,7 @@ class Thread extends Model
         return $this;
     }
 
-
+    
     /**
      * Unsubscribe a user from the current thread.
      *
@@ -54,6 +54,7 @@ class Thread extends Model
             ->delete();
     }
 
+    
     /**
      * A thread can have many subscriptions.
      *
@@ -62,5 +63,9 @@ class Thread extends Model
     public function subscriptions()
     {
         return $this->hasMany(ThreadSubscription::class);
+    }
+
+    public function category(){
+        return $this->belongsTo(Category::class);
     }
 }
