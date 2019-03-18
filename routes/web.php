@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/','QuoteController@index');
+Route::get('/',function(){
+	return view('layouts.main');
+});
 
 Route::get('/q',function(){
 	return view("layouts.main");
@@ -28,3 +30,5 @@ Route::get('/authors','CrawlLinksController@author');
 Route::get('templateim','ImageController@template');
 
 Route::get('/template/create','ImageTemplatesController@create');
+Route::get('/threads/','ThreadController@index');
+Route::get('/threads/{thread}','ThreadController@show');

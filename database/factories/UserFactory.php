@@ -22,3 +22,14 @@ $factory->define(App\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Thread::class, function (Faker $faker) {
+    return [
+        'title' => $faker->realText($maxNbChars = 100),
+        'user_id' => rand(1,25),
+        'category_id' => rand(1,25),
+        'replies_count' => rand(2,34),
+        'visits' => rand(300,400),
+        'body' => $faker->realText($maxNbChars = rand(800,1200)),
+    ];
+});

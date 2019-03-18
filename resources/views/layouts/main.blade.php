@@ -1,148 +1,306 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-
 <head>
+
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="@yield('author',env('APP_NAME'))">
+
     <title>@yield('title')</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="@yield('description')">
-    <style>
-    @keyframes hideLoader{
-          0%{ width: 100%; height: 100%; }
-          100%{ width: 0; height: 0; }
-      }
-      body > div.loader{
-              position: fixed;
-              background: white;
-              width: 100%;
-              height: 100%;
-              z-index: 1071;
-              opacity: 0;
-              transition: opacity .5s ease;
-              overflow: hidden;
-              pointer-events: none;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-          }
-          body:not(.loaded) > div.loader{
-              opacity: 1;
-          }
-          body:not(.loaded){
-              overflow: hidden;
-          }
-      body.loaded > div.loader{
-          animation: hideLoader .5s linear .5s forwards;
-      }
-
-        /* Typing Animation */
-    .loading-animation {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      animation: typing 1s linear infinite alternate;
-      position: relative;
-      left: -12px;
-    }
-
-    @keyframes typing {
-      0% {
-        background-color: rgba(100,100,100, 1);
-        box-shadow: 12px 0px 0px 0px rgba(100,100,100, 0.2),
-          24px 0px 0px 0px rgba(100,100,100, 0.2);
-      }
-
-      25% {
-        background-color: rgba(100,100,100, 0.4);
-        box-shadow: 12px 0px 0px 0px rgba(100,100,100, 2),
-          24px 0px 0px 0px rgba(100,100,100, 0.2);
-      }
-
-      75% {
-        background-color: rgba(100,100,100, 0.4);
-        box-shadow: 12px 0px 0px 0px rgba(100,100,100, 0.2),
-          24px 0px 0px 0px rgba(100,100,100, 1);
-      }
-    }
-    </style>
-    <script type="text/javascript">
-      window.addEventListener("load", function () {
-        document.querySelector('body').classList.add('loaded');
-      });
-    </script>
-    <link href="/assets/css/theme.css" rel="stylesheet" type="text/css" media="all" />
-    <link rel="preload" as="font" href="/assets/fonts/Inter-UI-upright.var.woff2" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" as="font" href="/assets/fonts/Inter-UI.var.woff2" type="font/woff2" crossorigin="anonymous">
-
+    <link rel="icon" href="/assets/img/brand/favicon.png" type="image/png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800">
+    <link rel="stylesheet" href="/assets/vendor/%40fortawesome/fontawesome-pro/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/theme.min.css">
+    
     @yield('css')
-  </head>
-  
+
+</head>
+
+<body>
 
 
-  <body data-smooth-scroll-offset="73">
+    <header class="header-transparent" id="header-main">
+        <div id="search-main" class="navbar-search">
+            <div class="container">
+                <!-- Search form -->
+                <form class="navbar-search-form" role="form">
+                    <div class="form-group">
+                        <div class="input-group input-group-transparent">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="far fa-search"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Type and hit enter ...">
+                        </div>
+                    </div>
+                </form>
+                <div class="navbar-search-suggestions">
+                    <h6>Search Suggestions</h6>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <ul class="list-unstyled mb-0">
+                                <li>
+                                    <a class="list-link" href="#">
+                                        <i class="far fa-search"></i>
+                                        <span>macbook pro</span> in Laptops
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="list-link" href="#">
+                                        <i class="far fa-search"></i>
+                                        <span>iphone 8</span> in Smartphones
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="list-link" href="#">
+                                        <i class="far fa-search"></i>
+                                        <span>macbook pro</span> in Laptops
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="list-link" href="#">
+                                        <i class="far fa-search"></i>
+                                        <span>beats pro solo 3</span> in Headphones
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="list-link" href="#">
+                                        <i class="far fa-search"></i>
+                                        <span>smasung galaxy 10</span> in Phones
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="navbar-top-main" class="navbar-top navbar-dark bg-dark border-bottom">
+            <div class="container">
+                <div class="navbar-nav align-items-center">
+                    <div class="d-none d-lg-inline-block">
+                        <span class="navbar-text mr-3">Purpose - Website UI Kit</span>
+                    </div>
+                    <div>
+                        <ul class="nav">
+                            <li class="nav-item dropdown ml-lg-2 dropdown-animate" data-toggle="hover">
+                                <a class="nav-link px-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img alt="Image placeholder" src="/assets/img/icons/flags/us.svg">
+                                    <span class="d-none d-lg-inline-block">United States</span>
+                                    <span class="d-lg-none">EN</span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-sm dropdown-menu-arrow">
+                                    <a href="#" class="dropdown-item">
+                                        <img alt="Image placeholder" src="/assets/img/icons/flags/es.svg">Spanish</a>
+                                    <a href="#" class="dropdown-item">
+                                        <img alt="Image placeholder" src="/assets/img/icons/flags/ro.svg">Romanian</a>
+                                    <a href="#" class="dropdown-item">
+                                        <img alt="Image placeholder" src="/assets/img/icons/flags/gr.svg">Greek</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="ml-auto">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="support.html">Support</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" data-action="search-open" data-target="#search-main"><i class="far fa-search"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="shop-cart.html"><i class="far fa-shopping-cart"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="login.html"><i class="far fa-user-circle"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-transparent navbar-dark bg-dark" id="navbar-main">
+            <div class="container">
+                <a class="navbar-brand mr-lg-5" href="../index.html">
+                    <img alt="Image placeholder" src="/assets/img/brand/white.png" style="height: 50px;">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main-collapse" aria-controls="navbar-main-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbar-main-collapse">
+                    <ul class="navbar-nav align-items-lg-center">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="../index.html">Overview</a>
+                        </li>
+                        <li class="nav-item dropdown dropdown-animate" data-toggle="hover">
+                            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-arrow py-0">
+                                <div class="list-group">
+                                    <a href="pages-landing.html" class="list-group-item list-group-item-action">
+                                        <div class="media d-flex align-items-center">
+                                            <img alt="Image placeholder" src="/assets/img/icons/dusk/svg/browser-window.svg" class="img-saturate" style="width: 50px;">
+                                            <div class="media-body ml-3">
+                                                <h6 class="mb-1">Landing Pages</h6>
+                                                <p class="mb-0">A great point to start from.</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="pages-secondary.html" class="list-group-item list-group-item-action">
+                                        <div class="media d-flex align-items-center">
+                                            <img alt="Image placeholder" src="/assets/img/icons/dusk/svg/ios-photos.svg" class="img-saturate" style="width: 50px;">
+                                            <div class="media-body ml-3">
+                                                <h6 class="mb-1">Secondary Pages</h6>
+                                                <p class="mb-0">Build your website with these demos.</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="pages-account.html" class="list-group-item list-group-item-action">
+                                        <div class="media d-flex align-items-center">
+                                            <img alt="Image placeholder" src="/assets/img/icons/dusk/svg/maintenance.svg" class="img-saturate" style="width: 50px;">
+                                            <div class="media-body ml-3">
+                                                <h6 class="mb-1">Account Pages</h6>
+                                                <p class="mb-0">Account management made easy.</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="pages-shop.html" class="list-group-item list-group-item-action">
+                                        <div class="media d-flex align-items-center">
+                                            <img alt="Image placeholder" src="/assets/img/icons/dusk/svg/in-progress.svg" class="img-saturate" style="width: 50px;">
+                                            <div class="media-body ml-3">
+                                                <h6 class="mb-1">Shop Pages</h6>
+                                                <p class="mb-0">Explore the full ecommerce website flow.</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../docs/alerts.html" role="button">Components</a>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../docs/introduction.html" target="_blank">Docs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../docs/changelog.html" target="_blank">Changelog</a>
+                        </li>
+                        <li class="nav-item mr-0">
+                            <a href="https://themes.getbootstrap.com/product/purpose-website-ui-kit/" target="_blank" class="nav-link d-lg-none">Purchase now</a>
+                            <a href="https://themes.getbootstrap.com/product/purpose-website-ui-kit/" target="_blank" class="btn btn-sm btn-white btn-circle btn-icon d-none d-lg-inline-flex">
+                                <span class="btn-inner--icon"><i class="far fa-shopping-cart"></i></span>
+                                <span class="btn-inner--text">Purchase now</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+
+    <main>
+        @yield('content')
+    </main>
+
+
+    <footer class="footer footer-dark bg-gradient-primary">
+        <div class="container">
+            <div class="row pt-md">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <a href="../index.html">
+                        <img src="/assets/img/brand/white.png" alt="Footer logo" style="height: 70px;">
+                    </a>
+                    <p class="text-sm">A unique and beautiful collection of UI elements that are all flexible and modular. A complete and customizable solution to building the website of your dreams.</p>
+                </div>
+                <div class="col-lg-2 col-6 col-sm-4 ml-lg-auto mb-5 mb-lg-0">
+                    <h6 class="heading mb-3">Account</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="account-profile.html">Profile</a>
+                        </li>
+                        <li><a href="account-settings.html">Settings</a>
+                        </li>
+                        <li><a href="account-billing.html">Billing</a>
+                        </li>
+                        <li><a href="account-notifications.html">Notifications</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-6 col-sm-4 mb-5 mb-lg-0">
+                    <h6 class="heading mb-3">About</h6>
+                    <ul class="list-unstyled text-small">
+                        <li><a href="#">Services</a>
+                        </li>
+                        <li><a href="#">Contact</a>
+                        </li>
+                        <li><a href="#">Careers</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-sm-4 mb-5 mb-lg-0">
+                    <h6 class="heading mb-3">Company</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Terms</a>
+                        </li>
+                        <li><a href="#">Privacy</a>
+                        </li>
+                        <li><a href="#">Support</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row align-items-center justify-content-md-between py-4 mt-4 delimiter-top">
+                <div class="col-md-6">
+                    <div class="copyright text-sm font-weight-bold text-center text-md-left">
+                        &copy; 2018 <a href="https://webpixels.io/" class="font-weight-bold" target="_blank">Webpixels</a>. All rights reserved.
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <ul class="nav justify-content-center justify-content-md-end mt-3 mt-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://dribbble.com/webpixels" target="_blank">
+                                <i class="fab fa-dribbble"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="https://instagram.com/webpixelsofficial" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://github.com/webpixels" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://facebook.com/webpixels" target="_blank">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/vendor/in-view/dist/in-view.min.js"></script>
     
-    @include('layouts.nav')
-    
-      @yield('content')   
-
-    @include('layouts.footer')
-
-    <a href="#" class="btn back-to-top btn-primary btn-round" data-smooth-scroll data-aos="fade-up" data-aos-anchor="section:last-of-type" data-aos-mirror="true" data-aos-once="false">
-      <svg class="icon" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <title>Icon For Arrow-up</title>
-        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-          <polygon points="0 0 24 0 24 24 0 24" opacity="0"></polygon>
-          <rect fill="#000000" x="11" y="5" width="2" height="14" rx="1"></rect>
-          <path d="M6.70710678,12.7071068 C6.31658249,13.0976311 5.68341751,13.0976311 5.29289322,12.7071068 C4.90236893,12.3165825 4.90236893,11.6834175 5.29289322,11.2928932 L11.2928932,5.29289322 C11.6714722,4.91431428 12.2810586,4.90106866 12.6757246,5.26284586 L18.6757246,10.7628459 C19.0828436,11.1360383 19.1103465,11.7686056 18.7371541,12.1757246 C18.3639617,12.5828436 17.7313944,12.6103465 17.3242754,12.2371541 L12.0300757,7.38413782 L6.70710678,12.7071068 Z"
-          fill="#000000" fill-rule="nonzero"></path>
-        </g>
-      </svg>
-    </a>
-    <!-- Required vendor scripts (Do not remove) -->
-    <script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-   
-
-
-    <!-- AOS (Animate On Scroll - animates elements into view while scrolling down) -->
-    {{-- <script type="text/javascript" src="//unpkg.com/aos%402.3.4/dist/aos.js"></script> --}}
-    <!-- Clipboard (copies content from browser into OS clipboard) -->
-    {{-- <script type="text/javascript" src="//unpkg.com/clipboard%402.0.4/dist/clipboard.min.js"></script> --}}
-    <!-- Fancybox (handles image and video lightbox and galleries) -->
-    {{-- <script type="text/javascript" src="//unpkg.com/%40fancyapps/fancybox%403.5.6/dist/jquery.fancybox.min.js"></script> --}}
-    <!-- Flickity (handles touch enabled carousels and sliders) -->
-    {{-- <script type="text/javascript" src="//unpkg.com/flickity%402.2.0/dist/flickity.pkgd.min.js"></script> --}}
-    <!-- Ion rangeSlider (flexible and pretty range slider elements) -->
-    {{-- <script type="text/javascript" src="//unpkg.com/ion-rangeslider%402.3.0/js/ion.rangeSlider.js"></script> --}}
-    <!-- Isotope (masonry layouts and filtering) -->
-    {{-- <script type="text/javascript" src="//unpkg.com/isotope-layout%403.0.6/dist/isotope.pkgd.min.js"></script> --}}
-    <!-- jarallax (parallax effect and video backgrounds) -->
-    {{-- <script type="text/javascript" src="//unpkg.com/jarallax%401.10.7/dist/jarallax.min.js"></script> --}}
-    {{-- <script type="text/javascript" src="//unpkg.com/jarallax%401.10.7/dist/jarallax-video.min.js"></script> --}}
-    {{-- <script type="text/javascript" src="//unpkg.com/jarallax%401.10.7/dist/jarallax-element.min.js"></script> --}}
-    <!-- jQuery Countdown (displays countdown text to a specified date) -->
-    {{-- <script type="text/javascript" src="//unpkg.com/jquery-countdown%402.2.0/dist/jquery.countdown.min.js"></script> --}}
-    <!-- Plyr (unified player for Video, Audio, Vimeo and Youtube) -->
-    {{-- <script type="text/javascript" src="//unpkg.com/plyr%403.5.2/dist/plyr.polyfilled.min.js"></script> --}}
-    <!-- Prism (displays formatted code boxes) -->
-    {{-- <script type="text/javascript" src="//unpkg.com/prismjs%401.15.0/prism.js"></script> --}}
-    <!-- ScrollMonitor (manages events for elements scrolling in and out of view) -->
-    {{-- <script type="text/javascript" src="//unpkg.com/scrollmonitor%401.2.4/scrollMonitor.js"></script> --}}
-    <!-- Smooth scroll (animation to links in-page)-->
-    {{-- <script type="text/javascript" src="//unpkg.com/smooth-scroll%4015.0.0/dist/smooth-scroll.polyfills.min.js"></script> --}}
-    <!-- TwitterFetcher (displays a feed of tweets from a specified account)-->
-    {{-- <script type="text/javascript" src="//unpkg.com/twitter-fetcher%4018.0.2/js/twitterFetcher_min.js"></script> --}}
-    <!-- Typed text (animated typing effect)-->
-    {{-- <script type="text/javascript" src="//unpkg.com/typed.js%402.0.10/lib/typed.min.js"></script> --}}
-    <!-- Required theme scripts (Do not remove) -->
-    <script type="text/javascript" src="/assets/js/theme.js"></script>
-
+    @yield('vendor')
+    <script src="/assets/js/theme.min.js"></script>
     @yield('js')
-
-  </body>
+    
+</body>
 
 </html>
