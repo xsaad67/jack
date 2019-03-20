@@ -27,4 +27,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function getDpAttribute(){
+        return is_null($this->avatar) ? \Avatar::create($this->name)->create() : url("/images/avatars/".$this->avatar);
+    }
+
+    public function isAdmin(){
+        return ! is_null($this->isAdmin);
+    }
 }

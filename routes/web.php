@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/',function(){
-	return view('layouts.main');
-});
+Route::get('/','PageController@index');
 
 Route::get('/q',function(){
 	return view("layouts.main");
