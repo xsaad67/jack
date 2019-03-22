@@ -1,5 +1,9 @@
 @extends('layouts.main')
 
+@section('css')
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css">
+@endsection
+
 @section('content')
 <!-- Spotlight -->
 <section class="slice slice-lg bg-cover bg-size--cover" style="background-image: url(/assets/img/backgrounds/img-10.jpg);">
@@ -41,57 +45,9 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-7">
-                <div class="card mb-3">
-
-                    {{-- <div class="card-header d-none d-md-block">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col"></div>
-                            <div class="col-4 text-muted">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col-4">Replies</div>
-                                    <div class="col-8">Last update</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
-                    
-
-                    @foreach($threads as $thread)
-
-                        <div class="card-body py-3">
-
-                            <div class="row align-items-center">
-                                <div class="col">
-                                    <a href="javascript:void(0)" class="text-big">{{ $thread->title }}</a>
-
-                                    {{-- <span class="badge badge-success align-text-bottom ml-1">Solved</span> --}}
-                                    <div class="text-muted small mt-1">Started {{ $thread->created_at->diffForHumans() }} &nbsp;·&nbsp; 
-                                        <a href="javascript:void(0)" class="text-muted">Allie Rodriguez</a>
-                                    </div>
-                                </div>
-                                <div class="d-none d-md-block col-4">
-
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col-4">43</div>
-                                        <div class="media col-8 align-items-center">
-                                            <img src="/products/appwork/v122/assets_/img/avatars/3-small.png" alt="" class="d-block ui-w-30 rounded-circle">
-                                            <div class="media-body flex-truncate ml-2">
-                                                <div class="line-height-1 text-truncate">1 day ago</div>
-                                                <a href="javascript:void(0)" class="text-muted small text-truncate">by Allie Rodriguez</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <hr class="m-0">
-
-                    @endforeach
-
+                <div class="card">
                     
                 </div>
-
                 <!-- Pagination -->
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center mt-4">
@@ -117,5 +73,12 @@
         </div>
     </div>
 </section>
+
+@endsection
+
+@section('js')
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
+
 
 @endsection
