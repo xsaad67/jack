@@ -20,8 +20,7 @@
 
 <body>
 
-
-    <header class="header-transparent" id="header-main">
+    <header id="header-main">
         <div id="search-main" class="navbar-search">
             <div class="container">
                 <!-- Search form -->
@@ -204,9 +203,6 @@
             </div>
         </nav>
     </header>
-
-
-
 
     <main>
         @yield('content')
