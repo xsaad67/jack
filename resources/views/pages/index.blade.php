@@ -1,5 +1,14 @@
 @extends('layouts.main')
 
+@section('css')
+<style>
+.sh1{background:#ffeadd;}
+.sh2{background:#774c60;}
+.sh3{background: #ffba08;}
+.sh4{background: #202c42;}
+</style>
+
+@endsection
 
 @section('content')
 
@@ -13,7 +22,7 @@
                         @if(!is_null($imagesArray[array_rand($imagesArray)] ))
                             <img alt="Image placeholder" src="{{$imagesArray[array_rand($imagesArray)]}}" class="card-img-top">
                         @endif --}}
-                        <div class="card-body py-5 text-center">
+                        <div class="card-body py-5 text-center sh{{rand(1,6)}}">
                             <a href="#" class="h5 lh-150">{{$quote->body}}</a>
                             <h6 class="text-muted mt-4 mb-0">{{ $quote->author->name }}</h6>
                         </div>

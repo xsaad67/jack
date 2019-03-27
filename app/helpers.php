@@ -70,4 +70,8 @@ function zipData($folder, $zipTo) {
 }
 
 }
+
+// public function indexNewOldOrValue(){
+//     $quotes = Post::quotes()->where('')
+// }
 ?>
