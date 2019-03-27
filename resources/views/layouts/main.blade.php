@@ -293,7 +293,7 @@
     <script src="/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/assets/vendor/in-view/dist/in-view.min.js"></script>
     
-    @yield('vendor')
+    @yield('plugins')
     <script src="/assets/js/theme.min.js"></script>
     @yield('js')
     

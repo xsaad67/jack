@@ -4,11 +4,11 @@
 @section('content')
 
 <section class="slice slice-lg bg-secondary">
-    <div class="container">
-        <div class="row row-grid">
+    <div class="container-fluid masonry-container">
+        <div class="row masonry">
             @foreach($quotes as $quote)
-                <div class="col-lg-4">
-                    <div class="card shadow-sm shadow--hover mb-2">
+                <div class="masonry-item col-lg-3">
+                    <div class="card shadow-sm shadow--hover mb-2" style="width:100%;">
                         {{-- {{$imagesArray[array_rand($imagesArray)] }}
                         @if(!is_null($imagesArray[array_rand($imagesArray)] ))
                             <img alt="Image placeholder" src="{{$imagesArray[array_rand($imagesArray)]}}" class="card-img-top">
@@ -47,4 +47,10 @@
     </div>
 </section>
 
+@endsection
+
+@section('plugins')
+  <script src="/assets/vendor/isotope-layout/dist/isotope.pkgd.min.js"></script>
+    <script src="/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/vendor/%40fancyapps/fancybox/dist/jquery.fancybox.min.js"></script>
 @endsection
