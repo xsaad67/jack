@@ -58,7 +58,7 @@
 @endsection
 
 @section('plugins')
-  <script src="/assets/vendor/isotope-layout/dist/isotope.pkgd.min.js"></script>
+    <script src="/assets/vendor/isotope-layout/dist/isotope.pkgd.min.js"></script>
     <script src="/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
     <script src="/assets/vendor/%40fancyapps/fancybox/dist/jquery.fancybox.min.js"></script>
 @endsection
