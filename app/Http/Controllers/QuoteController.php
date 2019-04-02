@@ -14,6 +14,7 @@ use App\ImageTemplates;
 
 ini_set('max_execution_time', 6890);
 
+
 class QuoteController extends Controller
 {
     /**

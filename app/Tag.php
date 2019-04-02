@@ -11,4 +11,8 @@ class Tag extends Model
     public function scopeTemplateTags(){
     	return $this->whereNotNull('source');
     }
+
+    public function getNameAttribute(){
+    	return $this->attributes['name'] = ucwords($this->attributes['name']);
+    }
 }
