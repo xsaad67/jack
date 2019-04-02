@@ -3,9 +3,9 @@
 @section('css')
 <style>
 .sh1{background:#ffeadd;}
-.sh2{background:#774c60;}.sh2 > a.q{ color:#fff; }
+.sh2{background:#774c60;}.sh2 > a.q{ color:#fff; } .sh2 > a.author>h6{ color:#fff; }
 .sh3{background: #ffba08;}
-.sh4{background: #202c42;}.sh4 > a.q{ color:#fff; }
+.sh4{background: #202c42;}.sh4 > a.q{ color:#fff; } .sh4 > a.author>h6{ color:#fff; }
 
 
 </style>
@@ -26,7 +26,7 @@
                         @endif --}}
                         <div class="card-body py-5 text-center sh{{rand(1,6)}}">
                             <a href="#" class="h5 lh-150 q">{{$quote->body}}</a>
-                            <h6 class="text-muted mt-4 mb-0">{{ $quote->author->name }}</h6>
+                            <a href="#" class="author"><h6 class="mt-4 mb-0">{{ $quote->author->name }}</h6></a>
                         </div>
                         <div class="card-footer">
                             <div class="row">
@@ -61,4 +61,8 @@
     <script src="/assets/vendor/isotope-layout/dist/isotope.pkgd.min.js"></script>
     <script src="/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
     <script src="/assets/vendor/%40fancyapps/fancybox/dist/jquery.fancybox.min.js"></script>
+@endsection
+
+@section('js')
+
 @endsection

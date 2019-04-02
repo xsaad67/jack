@@ -15,110 +15,25 @@
     <link rel="stylesheet" href="/assets/css/theme.min.css">
     
     @yield('css')
+    <style>
+        .bg-top{
+            background-color: #143354;
+        }
+        .tp-author{
+            color:#fff; padding-left:10px;
+        }
+        .tp-author:hover{
+            color:#fff;
+        }
+    </style>
 
 </head>
 
 <body>
 
     <header id="header-main">
-        <div id="search-main" class="navbar-search">
-            <div class="container">
-                <!-- Search form -->
-                <form class="navbar-search-form" role="form">
-                    <div class="form-group">
-                        <div class="input-group input-group-transparent">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="far fa-search"></i></span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Type and hit enter ...">
-                        </div>
-                    </div>
-                </form>
-                <div class="navbar-search-suggestions">
-                    <h6>Search Suggestions</h6>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <ul class="list-unstyled mb-0">
-                                <li>
-                                    <a class="list-link" href="#">
-                                        <i class="far fa-search"></i>
-                                        <span>macbook pro</span> in Laptops
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="list-link" href="#">
-                                        <i class="far fa-search"></i>
-                                        <span>iphone 8</span> in Smartphones
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="list-link" href="#">
-                                        <i class="far fa-search"></i>
-                                        <span>macbook pro</span> in Laptops
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="list-link" href="#">
-                                        <i class="far fa-search"></i>
-                                        <span>beats pro solo 3</span> in Headphones
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="list-link" href="#">
-                                        <i class="far fa-search"></i>
-                                        <span>smasung galaxy 10</span> in Phones
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="navbar-top-main" class="navbar-top navbar-dark bg-dark border-bottom">
-            <div class="container">
-                <div class="navbar-nav align-items-center">
-                    <div class="d-none d-lg-inline-block">
-                        <span class="navbar-text mr-3">Purpose - Website UI Kit</span>
-                    </div>
-                    <div>
-                        <ul class="nav">
-                            <li class="nav-item dropdown ml-lg-2 dropdown-animate" data-toggle="hover">
-                                <a class="nav-link px-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img alt="Image placeholder" src="/assets/img/icons/flags/us.svg">
-                                    <span class="d-none d-lg-inline-block">United States</span>
-                                    <span class="d-lg-none">EN</span>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-sm dropdown-menu-arrow">
-                                    <a href="#" class="dropdown-item">
-                                        <img alt="Image placeholder" src="/assets/img/icons/flags/es.svg">Spanish</a>
-                                    <a href="#" class="dropdown-item">
-                                        <img alt="Image placeholder" src="/assets/img/icons/flags/ro.svg">Romanian</a>
-                                    <a href="#" class="dropdown-item">
-                                        <img alt="Image placeholder" src="/assets/img/icons/flags/gr.svg">Greek</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="ml-auto">
-                        <ul class="nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="support.html">Support</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link" data-action="search-open" data-target="#search-main"><i class="far fa-search"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="shop-cart.html"><i class="far fa-shopping-cart"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="login.html"><i class="far fa-user-circle"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
+      
 
         <nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-transparent navbar-dark bg-dark" id="navbar-main">
             <div class="container">
@@ -137,46 +52,56 @@
                         </li>
                         <li class="nav-item dropdown dropdown-animate" data-toggle="hover">
                             <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-arrow py-0">
-                                <div class="list-group">
-                                    <a href="pages-landing.html" class="list-group-item list-group-item-action">
-                                        <div class="media d-flex align-items-center">
-                                            <img alt="Image placeholder" src="/assets/img/icons/dusk/svg/browser-window.svg" class="img-saturate" style="width: 50px;">
-                                            <div class="media-body ml-3">
-                                                <h6 class="mb-1">Landing Pages</h6>
-                                                <p class="mb-0">A great point to start from.</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="pages-secondary.html" class="list-group-item list-group-item-action">
-                                        <div class="media d-flex align-items-center">
-                                            <img alt="Image placeholder" src="/assets/img/icons/dusk/svg/ios-photos.svg" class="img-saturate" style="width: 50px;">
-                                            <div class="media-body ml-3">
-                                                <h6 class="mb-1">Secondary Pages</h6>
-                                                <p class="mb-0">Build your website with these demos.</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="pages-account.html" class="list-group-item list-group-item-action">
-                                        <div class="media d-flex align-items-center">
-                                            <img alt="Image placeholder" src="/assets/img/icons/dusk/svg/maintenance.svg" class="img-saturate" style="width: 50px;">
-                                            <div class="media-body ml-3">
-                                                <h6 class="mb-1">Account Pages</h6>
-                                                <p class="mb-0">Account management made easy.</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="pages-shop.html" class="list-group-item list-group-item-action">
-                                        <div class="media d-flex align-items-center">
-                                            <img alt="Image placeholder" src="/assets/img/icons/dusk/svg/in-progress.svg" class="img-saturate" style="width: 50px;">
-                                            <div class="media-body ml-3">
-                                                <h6 class="mb-1">Shop Pages</h6>
-                                                <p class="mb-0">Explore the full ecommerce website flow.</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
+                            <div class="dropdown-menu dropdown-menu-xl dropdown-menu-arrow p-0">
+    <ul class="list-group list-group-flush">
+        <li>
+            <a href="sections.html" class="list-group-item list-group-item-action" role="button">
+                <div class="media d-flex align-items-center">
+                    <figure style="width: 50px;">
+                        <img alt="Image placeholder" src="assets/img/icons/essential/detailed/Apps.svg" class="svg-inject img-fluid" style="height: 50px;">
+                    </figure>
+                    <div class="media-body ml-3">
+                        <h6 class="mb-1">Explore all sections</h6>
+                        <p class="mb-0">Awesome section examples for any scenario.</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+    <div class="dropdown-menu-links rounded-bottom delimiter-top p-4">
+        <div class="row">
+            <div class="col-sm-4">
+                <a href="sections.html#headers" class="dropdown-item">Headers</a>
+                <a href="sections.html#footers" class="dropdown-item">Footers</a>
+                <a href="sections.html#blog" class="dropdown-item">Blog</a>
+                <a href="sections.html#call-to-action" class="dropdown-item">Call to action</a>
+                <a href="sections.html#clients" class="dropdown-item">Clients</a>
+                <a href="sections.html#collapse" class="dropdown-item">Collapse</a>
+            </div>
+            <div class="col-sm-4">
+                <a href="sections.html#covers" class="dropdown-item">Covers</a>
+                <a href="sections.html#features" class="dropdown-item">Features</a>
+                <a href="sections.html#milestone" class="dropdown-item">Milestone</a>
+                <a href="sections.html#pricing" class="dropdown-item">Pricing</a>
+                <a href="sections.html#projects" class="dropdown-item">Projects</a>
+                <a href="sections.html#subscribe" class="dropdown-item">Subscribe</a>
+            </div>
+            <div class="col-sm-4">
+                <a href="sections.html#swiper" class="dropdown-item">Swiper</a>
+                <a href="sections.html#tables" class="dropdown-item">Tables</a>
+                <a href="sections.html#team" class="dropdown-item">Team</a>
+                <a href="sections.html#testimonials" class="dropdown-item">Testimonials</a>
+                <a href="sections.html#video" class="dropdown-item">Video</a>
+            </div>
+        </div>
+    </div>
+    <div class="delimiter-top py-3 px-4">
+        <span class="badge badge-soft-success">Yaass!</span>
+        <p class="mt-2 mb-0">
+            Explore, switch, customize any component, section or page and make your website rich its full potential.
+        </p>
+    </div>
+</div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../docs/alerts.html" role="button">Components</a>
@@ -202,6 +127,19 @@
                 </div>
             </div>
         </nav>
+          <div id="navbar-top-main" class="navbar-top navbar-dark bg-top">
+            <div class="container">
+                <div class="navbar-nav align-items-center">
+
+                    <div class="mx-auto">
+
+                       @foreach(range('A','Z') as $char)
+                        <a href="/author/{{strtolower($char)}}" title="Search Author starting from {{$char}}" class="tp-author">{{$char}}</a>
+                       @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
     <main>
