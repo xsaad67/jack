@@ -27,4 +27,12 @@ class Post extends Model
     public function media(){
         return $this->hasMany(Media::class);
     }
+    public function getLinkAttribute()
+    {
+        return url("/quote/".$this->slug);
+    }
+
+    public function scopeDisableRelationships($query){
+        return $query->setEagerLoads([]);
+    }
 }

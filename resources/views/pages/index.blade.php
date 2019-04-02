@@ -20,12 +20,12 @@
             @foreach($quotes as $quote)
                 <div class="masonry-item col-lg-3">
                     <div class="card shadow-sm shadow--hover mb-2" style="width:100%;">
-                        {{-- {{$imagesArray[array_rand($imagesArray)] }}
-                        @if(!is_null($imagesArray[array_rand($imagesArray)] ))
-                            <img alt="Image placeholder" src="{{$imagesArray[array_rand($imagesArray)]}}" class="card-img-top">
-                        @endif --}}
+                        <div class="actions actions-dark">
+                            <a href="#" class="action-item"><i class="far fa-clipboard"></i></a> 
+                        </div>
+                        
                         <div class="card-body py-5 text-center sh{{rand(1,6)}}">
-                            <a href="#" class="h5 lh-150 q">{{$quote->body}}</a>
+                            <a href="{{$quote->link}}" class="h5 lh-150 q">{{$quote->body}}</a>
                             <a href="#" class="author"><h6 class="mt-4 mb-0">{{ $quote->author->name }}</h6></a>
                         </div>
                         <div class="card-footer">

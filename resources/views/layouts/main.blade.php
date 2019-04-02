@@ -57,9 +57,9 @@
                                     <li>
                                         <a href="sections.html" class="list-group-item list-group-item-action" role="button">
                                             <div class="media d-flex align-items-center">
-                                                {{-- <figure style="width: 50px;">
-                                                    <img alt="Image placeholder" src="assets/img/icons/essential/detailed/Apps.svg" class="svg-inject img-fluid" style="height: 50px;">
-                                                </figure> --}}
+                                                <figure style="width: 50px;">
+                                                    <img alt="Explore Topics" src="/assets/img/icons/icons8.png" class="svg-inject img-fluid" style="height: 50px;">
+                                                </figure>
                                                 <div class="media-body ml-3">
                                                     <h6 class="mb-1">Explore all topics</h6>
                                                     <p class="mb-0">All curated topics for your inspiration</p>

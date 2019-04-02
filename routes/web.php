@@ -12,6 +12,9 @@
 */
 
 Route::get('/','PageController@index');
+Route::get('/quote/{slug}','QuoteController@show');
+Route::get('/quote/{id}','QuoteController@edit');
+Route::get('/quote/image/{id}','QuoteController@image');
 
 Route::get('/q',function(){
 	return view("layouts.main");
