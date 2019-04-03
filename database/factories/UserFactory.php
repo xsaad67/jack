@@ -34,9 +34,13 @@ $factory->define(App\Thread::class, function (Faker $faker) {
     ];
 });
 
-$factory->define(App\Category::class, function (Faker $faker) {
+$factory->define(App\Comment::class,function(Faker $faker){
     return [
-        'name' => $faker->name,
+        'user_id' => rand(1,30),
+        'body' => $faker->realText($maxNbChars = 100),
+        'commentable_id' => rand(1,20),
+        'commentable_type'=> 'App\Thread',
+
     ];
 });
 

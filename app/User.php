@@ -29,7 +29,7 @@ class User extends Authenticatable
     ];
 
     public function getDpAttribute(){
-        return is_null($this->avatar) ? \Avatar::create($this->name)->create() : url("/images/avatars/".$this->avatar);
+        return is_null($this->avatar) ? \Avatar::create($this->name)->toBase64() : url("/images/avatars/".$this->avatar);
     }
 
     public function isAdmin(){

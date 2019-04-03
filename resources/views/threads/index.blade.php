@@ -19,7 +19,7 @@
                                 @foreach($threads as $thread)
                                     <tr>
                                         <td>
-                                           <h6>This is shit post shit shit shit shit shit shit shit shit shit</h6>
+                                           <a href="{{$thread->link}}"><h6>{{$thread->title}}</h6></a>
                                            <div class="mt-3">
                                                 {{-- <div class="avatar-group">
                                                     <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexis Ren">
@@ -67,7 +67,7 @@
                 
                 <div class="d-flex">
                     <div class="justify-content-center">
-                    {{$threads->links()}}
+                        {{$threads->links()}}
                     </div>
                 </div>
             </div>

@@ -7,12 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="@yield('author',env('APP_NAME'))">
-
+    <meta name="_token" content="{{csrf_token()}}">
     <title>@yield('title')</title>
     <link rel="icon" href="/assets/img/brand/favicon.png" type="image/png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800">
     <link rel="stylesheet" href="/assets/vendor/%40fortawesome/fontawesome-pro/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/theme.min.css">
+
     
     @yield('css')
     <style>

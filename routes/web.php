@@ -33,3 +33,12 @@ Route::get('templateim','ImageController@template');
 Route::get('/template/create','ImageTemplatesController@create');
 Route::get('/threads/','ThreadController@index');
 Route::get('/threads/{thread}','ThreadController@show');
+
+//Comment and Replies//
+//
+Route::post('/reply/store', 'CommentController@replyStore')->name('reply.add');
+Route::post('/comment/store','CommentController@store')->name('comment.add');
+
+//A-Z quote
+//
+Route::get('/links','ZController@links');
