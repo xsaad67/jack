@@ -9,16 +9,21 @@ use App\CrawlLinks;
 class ZController extends Controller
 {
     
-    public function links(){
+    public function links(Request $request){
+    	ini_set('max_execution_time', 4890);
+    	ini_set('arr')
+
+    	$startPage = is_null($request->page) ? 1 : $request->page;
+
+    	return $startPage;
+    	return 1;
 
     	for($i=1;$i<=200;$i++){
 
     		$url = "https://www.azquotes.com/quotes/authors/a/".$i;
     		$crawler = Goutte::request('GET', $url);
-    		$rangeToCrawl = $crawler->filter('div.pager > li:nth-last-child(2)')->first()->text();	
-    		
+    		$rangeToCrawl = $crawler->filter('div.pager > li:nth-last-child(2)')->first()->text();
     		//Adding data to crawl links
-    		
     		$crawler->filter(".authors-page-a .table a")->each(function($node) use($i){
 	    		$link = "https://www.azquotes.com".$node->attr('href');
 	    		$name = $node->text();
@@ -29,16 +34,11 @@ class ZController extends Controller
 				$links->pageNo = $i;
 				$links->save();
 	    	});
-
     		if($i==$rangeToCrawl){break;}
-    		
-    	}
-    	
-    	$url = "https://www.azquotes.com/quotes/authors/a/1";
-    	$crawler = Goutte::request('GET', $url);
 
-    	
+    	} //Ending for loop 
+
+    } // Ending ZController@links 
 
 
-    }
 }

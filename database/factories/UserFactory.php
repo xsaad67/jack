@@ -38,9 +38,11 @@ $factory->define(App\Comment::class,function(Faker $faker){
     return [
         'user_id' => rand(1,30),
         'body' => $faker->realText($maxNbChars = 100),
+        'parent_id'=>10,
         'commentable_id' => rand(1,20),
         'commentable_type'=> 'App\Thread',
 
     ];
 });
+
 

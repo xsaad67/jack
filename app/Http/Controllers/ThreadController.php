@@ -14,8 +14,7 @@ class ThreadController extends Controller
      */
     public function index()
     {
-
-        $threads = Thread::with('users')->paginate(5);
+        $threads = Thread::with('user')->paginate(5);
         return view("threads.index",compact('threads'));
     }
 
@@ -46,17 +45,15 @@ class ThreadController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  Thread  $thread
-     * @return \Illuminate\Http\Response
-     */
+    * Display the specified resource.
+    *
+    * @param  Thread  $thread
+    * @return \Illuminate\Http\Response
+    */
     public function show($slug)
     {
         $thread = Thread::where('slug',$slug)->firstOrFail();
-        $comments = $thread->comments;
-
-        // return $comments->count();
+        $comments = $thread->comments()->paginate(2);
         return view('threads.show',compact('thread','comments'));
     }
 

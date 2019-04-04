@@ -40,5 +40,5 @@ Route::post('/reply/store', 'CommentController@replyStore')->name('reply.add');
 Route::post('/comment/store','CommentController@store')->name('comment.add');
 
 //A-Z quote
-//
 Route::get('/links','ZController@links');
+Route::get('/quotes','ZController@quotes');
