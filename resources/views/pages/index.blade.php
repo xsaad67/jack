@@ -16,7 +16,7 @@
 
 <section class="slice slice-lg bg-secondary">
     <div class="container-fluid masonry-container">
-        <div class="row masonry">
+        <div class="row masonry" data-infinite-scroll='{ "path": ".pagination li.active + li a", "append": ".masonry-item", "history": true }'>
             @foreach($quotes as $quote)
                 <div class="masonry-item col-lg-3">
                     <div class="card shadow-sm shadow--hover mb-2" style="width:100%;">
@@ -49,7 +49,10 @@
                 </div>
             @endforeach
 
+
+
         </div>
+        {{$quotes->links()}}
        
         
     </div>
@@ -61,6 +64,7 @@
     <script src="/assets/vendor/isotope-layout/dist/isotope.pkgd.min.js"></script>
     <script src="/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
     <script src="/assets/vendor/%40fancyapps/fancybox/dist/jquery.fancybox.min.js"></script>
+    <script src="/assets/js/infinite-scroll.js"></script>
 @endsection
 
 @section('js')
