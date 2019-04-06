@@ -16,7 +16,7 @@
 
 <section class="slice slice-lg bg-secondary">
     <div class="container-fluid masonry-container">
-        <div class="row masonry" data-infinite-scroll='{ "path": ".pagination li.active + li a", "append": ".masonry-item", "history": true }'>
+        <div class="row masonry">
             @foreach($quotes as $quote)
                 <div class="masonry-item col-lg-3">
                     <div class="card shadow-sm shadow--hover mb-2" style="width:100%;">
@@ -68,5 +68,7 @@
 @endsection
 
 @section('js')
+
+
 
 @endsection

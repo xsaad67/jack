@@ -15,4 +15,9 @@ class Tag extends Model
     public function getNameAttribute(){
     	return $this->attributes['name'] = ucwords($this->attributes['name']);
     }
+
+    public function quotes()
+    {
+    	return $this->morphedByMany(Post::class,'taggable')->where('isQuote',1);
+    }
 }

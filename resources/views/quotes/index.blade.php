@@ -51,3 +51,12 @@
 
 @endsection
 
+@section('js')
+
+<script type="text/javascript">
+	$(function(){
+		alert("yes");
+	});
+</script>
+
+@endsection
