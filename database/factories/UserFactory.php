@@ -45,4 +45,17 @@ $factory->define(App\Comment::class,function(Faker $faker){
     ];
 });
 
+$factory->define(App\Reply::class,function(Faker $faker){
+    return[
+        'client_id'=>rand(1,16),
+        'member_id'=>rand(1,6),
+        'order_status'=>1,
+        'shipping_date' =>$faker->date,
+        'courier_name' =>$faker->company,
+        'shipping_reference'=>rand(2,12),
+    ];
+});
+
+
+
 

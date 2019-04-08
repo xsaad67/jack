@@ -1,1 +1,87 @@
-Clients can purchase native plants from any ANP member. However shipping costs for shipping plants within that ANP member’s state is much cheaper than sending them interstate. Anna has a shipping cost agreement among ANP coop members as follows:•If a client purchases plants from ANP members located within the client’s state or territory, the total price for the plant delivered to the client will be the listed price plus the unit shipping cost. •for all interstate purchases the client will multiply the corresponding shipping multiplier (table below) by the unit shipping cost.For example:•Abigail from Parks in New South Wales (NSW) has ordered a quantity of 2 ‘graceful wattle’from an ANP member nursery in Armadale NSW. The nursery listed price for each ‘graceful wattle’ is $65 plus $120 shipping cost. The total cost to Harry would be (2 * $65) + (1 * (2 * $120))  = $370 total cost. Shipping Multiplier = 1.•Johnathan from Perth in Western Australia (WA) has ordered a quantity of 2 ‘graceful wattle’ from the same ANP member nursery in Armadale NSW. The shipping multiplier from NSW to WA is 2.4 so the total cost to Margaret would be (2 * $65) + (2.4 * (2 * $120)) = $706 total cost. Shipping Multiplier = 2.4.The general calculation is as follows:Plant cost = plant quantity * plant priceShipping cost = shipping multiplier * plant quantity * plant unit shipping costTotal order cost = shipping cost + plant cost
+SELECT statement that will produce an order report based on a date range and member nursery (you will need to have the data in the database for this query):
+
+o List of all orders between a start date and an end date for a particular nursery,
+o the report will be grouped by client,
+o each line in the list will include Client name, client state, order number /id and total for that order,
+o will be ordered by oldest order at the top
+
+Query
+
+--
+SELECT c.name AS "Name", c.email AS "Email", o.id as "Order Id" ,(SELECT SUM(unit_cost * quantity) from order_items where order_id=O.id) AS total FROM orders o
+JOIN clients c
+on o.client_id = c.id
+JOIN members m
+on o.member_id = m.id
+WHERE m.nursery = "Native shrubsR us"
+GROUP BY C.name
+ORDER BY o.id DESC
+
+SELECT statement/s that will produce the following data for a sample order
+(you will need to have the data in the database for this query):
+o The Client ORDER will include:
+ client name and account number,
+ order number / id and the total amount for the order,
+ order date,
+ At least three order items:
+• item name,
+• quantity,
+• price,
+• shipping cost,
+• item total cost incorporating the native plant cost
+calculation Function / Procedure (HINT a function is
+much easier to call in a SELECT statement)
+
+
+//Done
+CREATE TRIGGER statements:
+o Automatically insert a message to the Message table when a client order
+is placed,
+
+CREATE TRIGGER `insert_message_after_new_order` AFTER INSERT ON `orders`
+ FOR EACH ROW INSERT INTO messages (member_id, client_id, body)
+  VALUES (NEW.member_id, NEW.client_id,'Order Created')
+
+
+
+Clients can purchase native plants from any ANP member. However shipping costs for shipping plants within that ANP member’s state is much cheaper than sending them interstate. Anna has a shipping cost agreement among ANP coop members as follows:
+
+• If a client purchases plants from ANP members located within the client’s state or territory,
+the total price for the plant delivered to the client will be the listed price plus the unit shipping
+cost.
+
+• for all interstate purchases the client will multiply the corresponding shipping multiplier
+(table below) by the unit shipping cost.
+
+For example:
+• Abigail from Parks in New South Wales (NSW) has ordered a quantity of 2 ‘graceful wattle’ from an ANP member nursery in Armadale NSW. The nursery listed price for each ‘graceful
+wattle’ is $65 plus $120 shipping cost. The total cost to Harry would be (2 * $65) + (1 * (2 *
+$120)) = $370 total cost. Shipping Multiplier = 1.
+• Johnathan from Perth in Western Australia (WA) has ordered a quantity of 2 ‘graceful wattle’
+from the same ANP member nursery in Armadale NSW. The shipping multiplier from NSW
+to WA is 2.4 so the total cost to Margaret would be (2 * $65) + (2.4 * (2 * $120)) = $706 total
+cost. Shipping Multiplier = 2.4.
+
+The general calculation is as follows:
+Plant cost = plant quantity * plant price
+Shipping cost = shipping multiplier * plant quantity * plant unit shipping cost
+Total order cost = shipping cost + plant cost
+
+
+
+DELIMITER //
+CREATE FUNCTION shipping_calculator(`member_state` VARCHAR(255) , `client_state` VARCHAR(255), `plant_id` INT, `quantity` INT) RETURNS DECIMAL(10,2) DETERMINISTIC
+    BEGIN
+    DECLARE `plant_cost` DECIMAL(10,2);
+    DECLARE `shipping_cost` DECIMAL(10,2);
+    DECLARE `shipping_multiplier` DECIMAL(10,2);
+    DECLARE `total` DECIMAL(10,2);
+    
+    SELECT `price` * `quantity` INTO `plant_cost` from `plant_stock` where `plant_id`=`plant_id`;
+    SELECT shipping_cost INTO `shipping_multiplier` from shipping_muiltiplier where anp_state = `member_state` AND client_state = `client_state`;
+    SET `shipping_cost` = `shipping_muiltiplier` *`quantity` * (SELECT unit_shipping_cost FROM plant_stock where plant_id = `plant_id`);
+    SET `total` = `shipping_cost` + `plant_cost`;
+    RETURN `total`;
+    END//
+
+DELIMITER ;
