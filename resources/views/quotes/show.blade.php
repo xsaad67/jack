@@ -21,25 +21,35 @@
                                	<blockquote class="blockquote py-1">
 		                            
 		                            <p class="lead">{{$quote->body}}</p>
-		                            <footer class="blockquote-footer"><a href="#"><cite class="font-weight-600" title="Source Title">Monroe Parker</cite></a></footer>
+
+		                            <footer class="blockquote-footer"><a href="{{$quote->author->link}}" ><cite class="font-weight-600" title="Source Title">{{$quote->author->name}}</cite></a>
+                                        <div class="text-right">fuck</div>
+                                    </footer>
 		                        </blockquote>
+                                {{ $quote->tags }}
+
                             </div>
+
                             <div class="card-footer">
-                                <div class="row">
-                                    <div class="col text-center">
-                                        <ul class="list-inline mb-0">
-                                            <li class="list-inline-item pr-4">
-                                                <a href="#" class="text-muted"><i class="far fa-share mr-1 text-muted"></i> 131</a>
-                                            </li>
-                                            <li class="list-inline-item pr-4">
-                                                <a href="#" class="text-muted"><i class="far fa-eye mr-1 text-muted"></i> 255</a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="#" class="text-muted"><i class="far fa-comments mr-1 text-muted"></i> 14</a>
-                                            </li>
-                                        </ul>
+
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <a href="{{$navigation->first()->link}}" class="btn btn-primary btn-animated btn-animated-x">
+                                            <span class="btn-inner--visible">Previous</span>
+                                            <span class="btn-inner--hidden"><i class="far fa-arrow-left"></i></span>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="#"><h3>{{$quote->author->name}}</h3></a>
+                                    </div>
+                                    <div>
+                                        <a href="{{$navigation->last()->link}}" class="btn btn-primary btn-animated btn-animated-x">
+                                            <span class="btn-inner--visible">Next</span>
+                                            <span class="btn-inner--hidden"><i class="far fa-arrow-right"></i></span>
+                                        </a>
                                     </div>
                                 </div>
+                               
                             </div>
                         </div>
 			</div>

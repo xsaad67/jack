@@ -89,9 +89,12 @@ class QuoteController extends Controller
      */
     public function show($slug)
     {
-        \Debugbar::debugJSON();
+        // \Debugbar::debugJSON();
         $quote = Post::where('slug',$slug)->firstOrFail();
         $navigation = Post::disableRelationships()->where('author_id',$quote->author->id)->where('id','!=',$quote->id)->take(2)->get();
+        // dump($navigation->first());
+        // dump($navigation->last());
+
         return view('quotes.show',compact('quote','navigation'));
     }
 
