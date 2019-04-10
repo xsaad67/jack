@@ -74,7 +74,7 @@ class CrawlController extends Controller
 	            	if($node->filter("a.b-qt")->count() > 0){
 
 		            	$quoteLink = $node->filter("a.b-qt")->first();
-			  			$quote = Post::firstOrNew(['link'=>$quoteLink->attr("href")]);
+			  			    $quote = Post::firstOrNew(['link'=>$quoteLink->attr("href")]);
 		            	$quote->body = $quoteLink->text();
 		            	$quote->author_id = $authorId;
 		            	$quote->source = "brainyquote.com";

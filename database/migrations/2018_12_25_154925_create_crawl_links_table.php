@@ -21,6 +21,9 @@ class CreateCrawlLinksTable extends Migration
             $table->string("type")->nullable();
             $table->boolean("isCrawled")->default(0);
             $table->string('pageNo')->nullable();
+            $table->string('occupation')->nullable();
+            $table->string('born')->nullable();
+            $table->string('death')->nullable();
             $table->timestamps();
             
         });

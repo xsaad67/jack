@@ -19,11 +19,9 @@
                             <div class="card-body blockquote-card bg-secondary">
 
                                	<blockquote class="blockquote py-1">
-		                            
-		                            <p class="lead">{{$quote->body}}</p>
-
-		                            <footer class="blockquote-footer"><a href="{{$quote->author->link}}" ><cite class="font-weight-600" title="Source Title">{{$quote->author->name}}</cite></a>
-                                        <div class="text-right">fuck</div>
+    	                            <p class="lead">{{$quote->body}}</p>
+    	                            <footer class="blockquote-footer">
+                                        {{-- <a href="{{$quote->author->link}}" ><cite class="font-weight-600" title="Source Title">{{$quote->author->name}}</cite></a> --}}
                                     </footer>
 		                        </blockquote>
                                 {{ $quote->tags }}
@@ -34,19 +32,24 @@
 
                                 <div class="d-flex justify-content-between">
                                     <div>
-                                        <a href="{{$navigation->first()->link}}" class="btn btn-primary btn-animated btn-animated-x">
-                                            <span class="btn-inner--visible">Previous</span>
-                                            <span class="btn-inner--hidden"><i class="far fa-arrow-left"></i></span>
-                                        </a>
+                                        @if(!is_null($navigation->first()))
+                                            <a href="{{$navigation->first()->link}}" class="btn btn-primary btn-animated btn-animated-x">
+                                                <span class="btn-inner--visible">Previous</span>
+                                                <span class="btn-inner--hidden"><i class="far fa-arrow-left"></i></span>
+                                            </a>
+                                        @endif
                                     </div>
                                     <div>
-                                        <a href="#"><h3>{{$quote->author->name}}</h3></a>
+                                        {{-- <a href="#"><h3>{{$quote->author->name}}</h3></a> --}}
                                     </div>
+
                                     <div>
-                                        <a href="{{$navigation->last()->link}}" class="btn btn-primary btn-animated btn-animated-x">
-                                            <span class="btn-inner--visible">Next</span>
-                                            <span class="btn-inner--hidden"><i class="far fa-arrow-right"></i></span>
-                                        </a>
+                                        @if(!is_null($navigation->last()))
+                                            <a href="{{$navigation->last()->link}}" class="btn btn-primary btn-animated btn-animated-x">
+                                                <span class="btn-inner--visible">Next</span>
+                                                <span class="btn-inner--hidden"><i class="far fa-arrow-right"></i></span>
+                                            </a>
+                                        @endif
                                     </div>
                                 </div>
                                

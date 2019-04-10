@@ -25,8 +25,8 @@ class PageController extends Controller
         // }
 
         // dd(\App\Tag::templateTags()->take(30));
-    	// $quotes = Post::quotes()->where(\DB::raw(' length(body)'),'<=',200)->inRandomOrder()->paginate(20);
-        // return view('pages.index',compact("quotes","imagesArray"));
+    	$quotes = Post::quotes()->where(\DB::raw(' length(body)'),'<=',200)->paginate(20);
+        return view('pages.index',compact("quotes","imagesArray"));
         
     }
 

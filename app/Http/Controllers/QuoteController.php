@@ -91,10 +91,7 @@ class QuoteController extends Controller
     {
         // \Debugbar::debugJSON();
         $quote = Post::where('slug',$slug)->firstOrFail();
-        $navigation = Post::disableRelationships()->where('author_id',$quote->author->id)->where('id','!=',$quote->id)->take(2)->get();
-        // dump($navigation->first());
-        // dump($navigation->last());
-
+        $navigation = Post::disableRelationships()->where('author_id',$quote->author_id)->where('id','!=',$quote->id)->take(2)->get();
         return view('quotes.show',compact('quote','navigation'));
     }
 
