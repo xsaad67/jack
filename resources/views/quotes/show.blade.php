@@ -13,9 +13,9 @@
 		<div class="row">
 			<div class="col-lg-8">
 				<div class="card shadow-sm shadow--hover overflow-hidden">
-                            {{-- <div class="position-relative overflow-hidden">
-                                <img alt="Image placeholder" src="/assets/img/prv/img-3-800x600.jpg" class="card-img-top">
-                            </div> --}}
+                            <div class="position-relative overflow-hidden">
+                                <img alt="Image placeholder" src="/images/test/BLKCHCRY.TTF_4FC005BD-CEC9-6BCF-E5C7-2B09E91AD341.png" class="card-img-top">
+                            </div>
                             <div class="card-body blockquote-card bg-secondary">
 
                                	<blockquote class="blockquote py-1">

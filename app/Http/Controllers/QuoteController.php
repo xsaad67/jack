@@ -24,39 +24,19 @@ class QuoteController extends Controller
      */
     public function index(){
 
-        $fontsArray = [];
-        $files = \File::files(storage_path('app/public/fonts'));
+        $font = randomFont();  
+        $posts = Post::quotes()
+                    ->where(\DB::raw(' length(body)'),'<',100)
+                    ->whereDoesntHave('media')
+                    ->inRandomOrder()->take(1)->get();
 
-        foreach($files as $file){
-            $fontsArray[]=$file->getFileName();
+        foreach($posts as $post){
+            $str = $post->body;
+            $templateName = storage_path('app/public/templates/'.ImageTemplates::inRandomOrder()->first()->imageName);
+            dd(createQuote($templateName,$str,$post->author->name));
         }
 
-        $fontName = $fontsArray[array_rand($fontsArray)];
-
-
-        // dd("yes");
-        
-        $templateName = storage_path('app/public/templates/'.ImageTemplates::inRandomOrder()->first()->imageName);
-
-        $post = Post::quotes()
-                    ->where(\DB::raw(' length(body)'),'<=',200)
-                    ->whereDoesntHave('media')
-                    ->inRandomOrder()->first();
-        
-        $str = $post->body;
-        $im = imagecreatefrompng($templateName);
-        $box = new Box($im);
-        $fontLocation=storage_path("app/public/fonts/".$fontName);
-        $box->setFontFace($fontLocation); 
-        $box->setFontColor(new Color(255, 255, 255));
-        $box->setTextShadow(new Color(0, 0, 0, 50), 1,1);
-        $box->setFontSize(50);
-        $box->setBox(240, 200, 700, 400);
-        $box->setBackgroundColor(new Color(21, 20, 20, 30));
-        $box->setTextAlign('center', 'center');
-        $box->draw($str."\n ~ Nothing \n Mynameofcompany.com");
-        header("Content-type: image/png");
-        imagepng($im);
+     
 
     }
 
