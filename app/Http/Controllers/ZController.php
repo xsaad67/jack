@@ -23,10 +23,13 @@ class ZController extends Controller
 
     		$url = "https://www.azquotes.com/quotes/authors/a/".$i;
     		$crawler = Goutte::request('GET', $url);
+
     		$rangeToCrawl = $crawler->filter('div.pager > li:nth-last-child(2)')->first()->text();
     		//Adding data to crawl links
     		$crawler->filter(".authors-page-a .table a")->each(function($node) use($i){
+
 	    		$link = "https://www.azquotes.com".$node->attr('href');
+
 	    		$name = $node->text();
 
 	    		$links = CrawlLinks::firstOrNew(['link'=>$link]);
@@ -43,44 +46,18 @@ class ZController extends Controller
 
 
     public function authors(Request $request){
-
-        $str = "Occupation: Poet";
-        // dd(str_contains($str,"Occupation"));
-
-        $occupation = null;
-        $born = null;
-        $death = null;
-        // dump($born);
-
-        // switch($str){
-        //     case str_contains($str,"Occupation"):
-        //         $occupation = trim(str_replace("Occupation:","",$str));
-        //         break;
-        //     case str_contains($str,"Born"):
-        //         $born = trim(str_replace("Born:","",$str));
-        //         break;
-        //     case str_contains($str,"Died"):
-        //         $death = trim(str_replace("Died:","",$str));
-        //         break;
-        // }
-
-        
-
-        // dd($str);
-        
-
-       $url = "https://www.azquotes.com/author/37891-Muhammad";
-       $crawler = Goutte::request('GET',$url);
-       $image = $crawler->filter("img.at_include")->count() > 0 ? "https://www.azquotes.com/".$crawler->filter("img.at_include")->first()->attr('src') : null;
-       dump($image);
-
-       $crawler->filter("ul.info")->each(function($node) use (&$occupation,&$born,&$death){
-            
+       $url= "https://www.azquotes.com/quotes/authors/a";
+       $crawler = Goutte::request('GET', $url);
+       $crawler->filter(".table tbody > tr > td:nth-child(2)")->each(function($node){
+           if($node->filter('a')->count() > 0){
+              dump($node->filter('a')->attr("href"));
+              dump($node->filter('a')->text());
+           }else{
+            dump(trim($node->text()));
+           }
        });
-
-        dump($occupation);
-        dump($born);
-        dump($death);
     }
 
+    
+    
 }
