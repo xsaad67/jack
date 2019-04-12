@@ -20,6 +20,7 @@ class CreateMediaTable extends Migration
             $table->integer('post_id');
             $table->boolean('isSolid')->default(0);
             $table->string('size')->nullable();
+            $table->string('fontSize')->nullable();
             $table->timestamps();
         });
     }

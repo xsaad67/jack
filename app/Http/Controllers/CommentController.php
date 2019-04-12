@@ -36,13 +36,13 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        $comment = new Comment;
+        $comment = new Comment();
         $comment->body = $request->get('comment_body');
         $comment->user_id=1;
         $thread = Thread::find($request->get('post_id'));
-        // return response()->json(['id'=>$thread->])
+        
         $comment  = $thread->comments()->save($comment);
-
+        
         if($request->wantsJson()){
             $html = view("comments.singleComment",["comment"=>$comment,'post_id'=>$thread->id])->render();
             return response()->json(['html'=>$html,'success'=>true]);  

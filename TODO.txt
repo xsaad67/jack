@@ -1,0 +1,44 @@
+--Theme
+	--main page
+	--show page
+	--author
+		--author pagination
+		--author page
+		--author data
+
+	--Crawl
+		--author
+		--data
+		--crawl links
+
+	--Forum
+		--create
+		--edit
+		--delete
+		--show
+
+	--Reply
+		--create
+		--edit
+		--delete
+		--show
+
+	--Reply-to-Reply
+		--create
+		--edit
+		--delete
+		--show
+
+
+	--Bookmarks
+		--Guest bookmark
+		--Auth bookmark
+
+	--Collection
+		--create collection
+		--add item to collection
+		--delete
+		--show
+
+	--Create post
+		--create own

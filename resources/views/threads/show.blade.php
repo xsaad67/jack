@@ -40,13 +40,14 @@
                 </article>
                 <hr>
                 <h5 class="mb-4">Comments</h5>
+
                 <div class="p-5 bg-secondary border rounded">
 
                     <div id="comments">
                         @include('comments.replies', ['comments' => $comments])
                     </div>
 
-                    {{ $comments->fragment('comments')->links() }}
+                    {{-- {{ $comments->fragment('comments')->links() }} --}}
 
                     <h5 class="mt-5 mb-4">Add you comment</h5>
 
@@ -56,16 +57,14 @@
                         <div class="form-group">
                             <label class="sr-only">Type your message</label>
                             <input type="hidden" id="post_id" value="{{$thread->id}}">
-                            <textarea class="form-control textarea-autosize" rows="3" id="comment" placeholder="Type your comment"></textarea>
+                            <textarea class="form-control" rows="3" id="comment" placeholder="Type your comment"></textarea>
                         </div>
                         <button type="button" class="btn btn-lg btn-block btn-primary shadow mt-4" id="addComment">Comment</button>
                     </form>
                 </div>
-                
-
             </div>
             
-            @include('threads.sidebar')
+            {{-- @include('threads.sidebar') --}}
         </div>
     </div>
 </section>
@@ -93,19 +92,22 @@
                 $.ajax({
                     type: "POST",
                     url: commentLink,
-                    data:{ post_id:id,comment_body:comment },
+                    data:{ post_id:id , comment_body:comment},
                     dataType: "json",
                     success: function(response){
                         console.log(response.html);
-                        $("#comments").prepend(response.html);
+                        $("#comments").append(response.html);
                     },
                 }); //End of Ajax
             });
+
         //End of add comments
         
-
         
         //show reply form
+            $("#comments").on("click",".showReply",function(){
+                alert("yes");
+            });
             
 
 

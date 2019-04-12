@@ -3,15 +3,20 @@
 function randomFont(){
 
 	$fontsArray = [];
-    $files = \File::files(storage_path('app/public/fonts'));
+    $folderName = public_path("temp/fonts/");
+    $files = \File::files($folderName);
     foreach($files as $file){
         $fontsArray[]=$file->getFileName();
     }
+
     $fontName = $fontsArray[array_rand($fontsArray)];
-    return ["fontLocation"=>storage_path("app/public/fonts/palitoon.otf"),
-    		"fontName"=>$fontName
-    		];
+
+    return [
+            "fontLocation"=>$folderName.$fontName,
+    		"fontName"=>$fontName,
+		];
 }
+
 
 function createQuote($templateName,$str,$author){
 		
@@ -34,7 +39,7 @@ function createQuote($templateName,$str,$author){
     // header("Content-type: image/png");
     // imagepng($im);
     $fileToSave =$font['fontName']."_".newGuid().".png";
-    imagepng($im,public_path('images/test/'.$fileToSave));
+    imagepng($im,public_path('images/quotes/'.$fileToSave));
 
     return [
             'font'=>$font['fontName'],

@@ -10,19 +10,18 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
-Route::get('/','PageController@index');
+Route::get('/','QuoteController@index');
 Route::get('/quote/{slug}','QuoteController@show');
 Route::get('/quote/{id}','QuoteController@edit');
 Route::get('/quote/image/{id}','QuoteController@image');
 
-Route::get('/q',function(){
-	return view("layouts.main");
-});
+Route::resource('/media','MediaController');
 
 Route::get('/create-image','ImageController@addAlphaColor');
 Route::get('/image','ImageController@image');
-Auth::routes();
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/topics','CrawlLinksController@topics');
@@ -35,7 +34,7 @@ Route::get('/threads/','ThreadController@index');
 Route::get('/threads/{thread}','ThreadController@show');
 
 //Comment and Replies//
-//
+
 Route::post('/reply/store', 'CommentController@replyStore')->name('reply.add');
 Route::post('/comment/store','CommentController@store')->name('comment.add');
 

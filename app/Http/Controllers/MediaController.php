@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Media;
 use App\Post;
+use App\ImageTemplates;
+
 use Illuminate\Http\Request;
 
 class MediaController extends Controller
@@ -25,7 +27,34 @@ class MediaController extends Controller
      */
     public function create()
     {
-        //
+
+        $font = randomFont();  
+
+        $posts = Post::quotes()
+                    ->where(\DB::raw(' length(body)'),'<',100)
+                    ->whereDoesntHave('media')
+                    ->inRandomOrder()->take(1)->get();
+
+        foreach($posts as $post){
+
+            //Creating quote with template
+            $template = ImageTemplates::inRandomOrder()->first();
+            $templateName = public_path('temp/templates/'.$template->imageName);
+            $quoteArray = createQuote($templateName,$post->body,$post->author->name);
+
+            $media = new Media();
+            $media->fileName = $quoteArray['fileName'];
+            $media->templateId = $template->id;
+            $media->post_id = $post->id;
+            $media->size = $quoteArray['imageSize'];
+            $media->fontSize = $quoteArray['fontSize'];
+            $media->save();
+
+            $post->featuredImage = $quoteArray['fileName'];
+            $post->save();
+
+        }
+
     }
 
     /**
@@ -45,9 +74,9 @@ class MediaController extends Controller
      * @param  \App\Media  $media
      * @return \Illuminate\Http\Response
      */
-    public function show(Media $media)
+    public function show(Request $request)
     {
-        //
+        
     }
 
     /**

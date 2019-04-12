@@ -6,9 +6,8 @@ use App\Post;
 use Illuminate\Http\Request;
 use Goutte;
 use Illuminate\Database\Eloquent\Builder;
+use App\Media;
 
-use GDText\Box;
-use GDText\Color;
 
 use App\ImageTemplates;
 
@@ -22,22 +21,8 @@ class QuoteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
-
-        $font = randomFont();  
-        $posts = Post::quotes()
-                    ->where(\DB::raw(' length(body)'),'<',100)
-                    ->whereDoesntHave('media')
-                    ->inRandomOrder()->take(1)->get();
-
-        foreach($posts as $post){
-            $str = $post->body;
-            $templateName = storage_path('app/public/templates/'.ImageTemplates::inRandomOrder()->first()->imageName);
-            dd(createQuote($templateName,$str,$post->author->name));
-        }
-
-     
-
+    public function index(){  
+        
     }
 
     /**

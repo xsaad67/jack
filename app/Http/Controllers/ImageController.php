@@ -18,8 +18,6 @@ class ImageController extends Controller
 	public function addAlphaColor(){
 
 		$toMask = public_path('assets\img\desktop-app8.jpg');
-
-
 		$img = imagecreatefromjpeg($toMask);
 		$w = imagesx($img);
 		$h = imagesy($img);

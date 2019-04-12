@@ -53,7 +53,8 @@ class ThreadController extends Controller
     public function show($slug)
     {
         $thread = Thread::where('slug',$slug)->firstOrFail();
-        $comments = $thread->comments()->paginate(2);
+        $comments = $thread->comments;
+       
         return view('threads.show',compact('thread','comments'));
     }
 

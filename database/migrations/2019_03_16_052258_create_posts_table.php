@@ -21,7 +21,7 @@ class CreatePostsTable extends Migration
             $table->integer('author_id')->nullable();
             $table->integer('user_id')->nullable();
             $table->boolean('isQuote')->default(1);
-            $table->string('featuredImage')->nullable();
+            $table->text('featuredImage')->nullable();
             $table->text('tags')->nullable();
             $table->string('link')->nullable();
             $table->string('source')->nullable();
