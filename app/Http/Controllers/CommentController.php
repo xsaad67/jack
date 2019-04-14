@@ -55,15 +55,15 @@ class CommentController extends Controller
     {
         $reply = new Comment();
         
-        $reply->body = $request->get('comment_body');
-        $reply->user_id = auth()->id();
-        $reply->parent_id = $request->get('comment_id');
-        $thread = Thread::find($request->get('post_id'));
+        $reply->body = $request->get('body');
+        $reply->user_id = 1;
+        $reply->parent_id = $request->get('parent');
+        $thread = Thread::find($request->get('thread'));
 
-        $comment  = $post->comments()->save($reply);
+        $comment  = $thread->comments()->save($reply);
 
         if($request->wantsJson()){
-            $html = view("partials._single_comment",["comment"=>$comment,'post_id'=>$post->id])->render();
+            $html = view("comments.singleComment",["comment"=>$comment,'post_id'=>$thread->id])->render();
             return response()->json(['html'=>$html,'success'=>true]);
         }else{
             return redirect()->back();

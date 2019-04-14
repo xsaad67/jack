@@ -75,6 +75,7 @@
 
 <script>
     var commentLink = '{{route('comment.add')}}'; 
+    var replyLink = '{{route('reply.add')}}'
 
     $.ajaxSetup({
       headers: {
@@ -140,19 +141,20 @@
                 var body = $(this).parent().find("textarea.body").val();
                 
                 var toAppend = $(this).closest('.media-body');
-                
+
                 $.ajax({
                     type: "POST",
-                    url: commentLink,
-                    data:{ post_id:id , comment_body:comment},
+                    url: replyLink,
+                    data:{ body:body , parent:parent, thread:thread_id},
                     dataType: "json",
                     success: function(response){
                         console.log(response.html);
-                        $("#comments").append(response.html);
+                        toAppend.append(response.html);
+                        $(".replyForm").remove();
                     },
                 }); //End of Ajax
        
-                toAppend.append(abc);
+                
                  
             });
     
