@@ -85,3 +85,62 @@ CREATE FUNCTION shipping_calculator(`member_state` VARCHAR(255) , `client_state`
     END//
 
 DELIMITER ;
+
+BEGIN
+    DECLARE `plant_cost` DECIMAL(10,2);
+    DECLARE `shipping_cost` DECIMAL(10,2);
+    DECLARE `total` DECIMAL(10,2);
+    
+   SET `plant_cost` = price * quantity;
+   SET `shipping_cost` = (shipping_muiltiplier * (quantity * unit_cost));
+    SET `total` = `shipping_cost` + `plant_cost`;
+    RETURN `plant_cost`;
+    END
+
+    price
+    unit_cost
+    quantity
+    shipping_multiplier
+
+SET @p0='4.5'; SET @p1='1.0'; SET @p2='2.4'; SET @p3='1.4'; SELECT `shipping_calculator`(@p0, @p1, @p2, @p3) AS `euro_to_dollar`;
+
+
+    BEGIN
+  DECLARE plant_cost double;
+  DECLARE shipping_cost double;
+  DECLARE total double;
+  
+  
+  
+  SET @plant_cost = price * quantity;
+  SET @shipping_cost = (shipping_muiltiplier *(quantity*unit_cost));
+  SET total = @shipping_cost + @plant_cost
+  RETURN @total;
+END
+
+
+--Query 2 remaining function
+
+SELECT c.name,o.id,o.shipping_date,(SELECT SUM(unit_cost * quantity) from order_items where order_id=O.id) AS total,
+p.common_name,oi.quantity,oi.plant_cost,(SELECT unit_shipping_cost from plant_stock where plant_id = oi.plant_id) AS shipping_cost
+FROM orders o JOIN clients c on
+o.client_id = c.id 
+JOIN order_items oi 
+on oi.order_id = o.id 
+JOIN plants p 
+on oi.plant_id = p.id
+
+
+
+
+SELECT c.name,o.id,o.shipping_date,(SELECT SUM(unit_cost * quantity) from order_items where order_id=O.id) AS total,
+p.common_name,oi.quantity,oi.plant_cost,(SELECT unit_shipping_cost from plant_stock where plant_id = oi.plant_id) AS shipping_cost,shipping_calculator(oi.plant_cost,oi.unit_cost,oi.quantity,(SELECT shipping_cost from shipping_muiltiplier where anp_state = c.state and client_state= m.state )) AS "native plant cost"
+FROM orders o 
+JOIN clients c on
+o.client_id = c.id 
+JOIN members m 
+on m.id = o.member_id
+JOIN order_items oi 
+on oi.order_id = o.id 
+JOIN plants p 
+on oi.plant_id = p.id
