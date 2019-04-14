@@ -82,7 +82,21 @@
       }
     });
 
+   function showReplyHtml(threadId, parentId){
+        var htmlToAppend = `<div class="form-group replyForm">
+                            <label class="sr-only">Type your message</label>
+                            <input type="hidden" class="post_id" value="`+threadId+`">
+                            <input type="hidden" class="parent" value="`+parentId+`">
+                            <textarea class="form-control textarea-autosize body" rows="3" id="comment" placeholder="Type your comment"></textarea>
+                            <button type="button" class="btn btn-block btn-primary shadow mt-2 addReply " >Comment</button>
+                        </div>`;
+        return htmlToAppend;
+   }
+
+    // var notOpen = true;
+
     $(function(){
+         // alert(showReplyHtml(1,2));
 
         //Comment add function
             $("#addComment").click(function(){
@@ -106,15 +120,41 @@
         
         //show reply form
             $("#comments").on("click",".showReply",function(){
-                alert("yes");
+
+                var working = $(this).closest('.media');
+                var parent = working.data("id");
+                var thread = "{{$thread->id}}";
+                $(".replyForm").remove();
+                working.find(".media-body").append(showReplyHtml(thread,parent));
             });
             
 
 
 
-        //end reply form
-        
+        //Ajax to reply form
+            
+            $("#comments").on("click",".addReply",function(){
 
+                var parent = $(this).parent().find("input.parent").val();
+                var thread_id = $(this).parent().find('input.post_id').val();
+                var body = $(this).parent().find("textarea.body").val();
+                
+                var toAppend = $(this).closest('.media-body');
+                
+                $.ajax({
+                    type: "POST",
+                    url: commentLink,
+                    data:{ post_id:id , comment_body:comment},
+                    dataType: "json",
+                    success: function(response){
+                        console.log(response.html);
+                        $("#comments").append(response.html);
+                    },
+                }); //End of Ajax
+       
+                toAppend.append(abc);
+                 
+            });
     
     });
 </script>

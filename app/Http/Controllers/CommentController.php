@@ -54,10 +54,12 @@ class CommentController extends Controller
     public function replyStore(Request $request)
     {
         $reply = new Comment();
+        
         $reply->body = $request->get('comment_body');
         $reply->user_id = auth()->id();
         $reply->parent_id = $request->get('comment_id');
-        $post = Post::find($request->get('post_id'));
+        $thread = Thread::find($request->get('post_id'));
+
         $comment  = $post->comments()->save($reply);
 
         if($request->wantsJson()){

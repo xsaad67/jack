@@ -1,4 +1,4 @@
- <div class="media mt-2" id="comment-{{$comment->id}}">
+ <div class="media mt-2" id="comment-{{$comment->id}}" data-id="{{$comment->id}}">
     <img alt="Image placeholder" class="rounded-circle shadow mr-4" src="/assets/img/prv/team-1-800x800.jpg" style="width: 64px;">
     <div class="media-body">
         <p>{{$comment->body}} {{$comment->id}}</p>
