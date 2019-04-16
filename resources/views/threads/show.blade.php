@@ -126,7 +126,7 @@
                 var parent = working.data("id");
                 var thread = "{{$thread->id}}";
                 $(".replyForm").remove();
-                working.find(".media-body").append(showReplyHtml(thread,parent));
+                working.find(".media-body").first().append(showReplyHtml(thread,parent));
             });
             
 
