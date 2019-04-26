@@ -6,9 +6,13 @@
                             <a href="#" class="action-item"><i class="far fa-clipboard"></i></a> 
                         </div>
                         
-                        <div class="card-body py-5 text-center sh{{rand(1,6)}}">
+                        <div class="card-body py-3  sh{{rand(1,4)}}">
+
                             <a href="{{$quote->link}}" class="h5 lh-150 q">{{$quote->body}}</a>
-                            <a href="#" class="author"><h6 class="mt-4 mb-0">{{ $quote->author->name }}</h6></a>
+                            <footer class="blockquote-footer mt-3">
+                                <a href="{{$quote->author->link}}"><cite class="font-weight-600" title="Source Title">{{$quote->author->name}}</cite></a>
+                            </footer>
+                           
                         </div>
                         <div class="card-footer">
                             <div class="row">

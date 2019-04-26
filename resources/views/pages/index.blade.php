@@ -2,10 +2,10 @@
 
 @section('css')
 <style>
-.sh1{background:#ffeadd;}
-.sh2{background:#774c60;}.sh2 > a.q{ color:#fff; } .sh2 > a.author>h6{ color:#fff; }
-.sh3{background: #ffba08;}
-.sh4{background: #202c42;}.sh4 > a.q{ color:#fff; } .sh4 > a.author>h6{ color:#fff; }
+.sh1{border-left:5px dashed #d25d15; }
+.sh2{border-left:5px dashed #774c60;}
+.sh3{border-left: 5px dashed #ffba08;}
+.sh4{border-left: 5px dashed #202c42;}
 
 
 </style>
