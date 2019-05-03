@@ -6,14 +6,50 @@
 .sh2{border-left:5px dashed #774c60;}
 .sh3{border-left: 5px dashed #ffba08;}
 .sh4{border-left: 5px dashed #202c42;}
+.main-quote{
+    font-size: 30px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.main-quote>a{
+        color: #fff;
+}
+.main-quote>:before{
+    content: open-quote;
+    left: -5px;
+    top: 31px;
+    font-size: 4em;
+   
+}
+.main-quote>:after{
+    content: close-quote;
+    left: 2px;
+    top: 30px;
+    font-size: 3em;
+}
+.main-quote>:after,.main-quote>:before{
+    display: inline;
+    height: 0;
+    line-height: 0;
+    position: relative;
+    color: #ddd;
+}
 
-
+}
 </style>
 
 @endsection
 
 @section('content')
-
+<section class="slice bg-primary">
+    <div class="container">
+        <div class="text-center">
+           <div class="main-quote">
+            <a href="#"> Life's something we already understand. Death is a mystery. </a>
+           </div>
+        </div>
+    </div>
+</section>
 <section class="slice slice-lg bg-secondary">
     <div class="container-fluid">
         <div class="row">

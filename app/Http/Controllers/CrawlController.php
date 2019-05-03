@@ -23,7 +23,7 @@ class CrawlController extends Controller
       foreach($crawlLinks as $crawlLink){
 
         $crawlLinks = CrawlLinks::where("isCrawled",0)->take(1000)->get();
-        foreach($crawlLinks as $crawlLink){
+         foreach($crawlLinks as $crawlLink){
 
             $url = $crawlLink->link;
             $crawler = Goutte::request('GET', $url);

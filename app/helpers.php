@@ -106,49 +106,5 @@ function formatDate($string)
 
 }
 
-function farigh(){
-     $str = "Occupation: Poet";
-        // dd(str_contains($str,"Occupation"));
-
-        $occupation = null;
-        $born = null;
-        $death = null;
-        // dump($born);
-
-        // switch($str){
-        //     case str_contains($str,"Occupation"):
-        //         $occupation = trim(str_replace("Occupation:","",$str));
-        //         break;
-        //     case str_contains($str,"Born"):
-        //         $born = trim(str_replace("Born:","",$str));
-        //         break;
-        //     case str_contains($str,"Died"):
-        //         $death = trim(str_replace("Died:","",$str));
-        //         break;
-        // }
-
-        
-
-        // dd($str);
-        
-
-       // $url = "https://www.azquotes.com/author/37891-Muhammad";
-       // $crawler = Goutte::request('GET',$url);
-       // $image = $crawler->filter("img.at_include")->count() > 0 ? "https://www.azquotes.com/".$crawler->filter("img.at_include")->first()->attr('src') : null;
-       // dump($image);
-
-       // $crawler->filter("ul.info")->each(function($node) use (&$occupation,&$born,&$death){
-            
-       // });
-
-       //  dump($occupation);
-       //  dump($born);
-       //  dump($death);
-       //  
-       
-       // dd($this->checkOnlyYear("     1971        "));
-       
-       dd($this->formatDate("b. March 29, 1934"));
-}
 
 ?>

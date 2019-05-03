@@ -16,7 +16,7 @@
                         </div>
                         <div class="card-footer">
                             <div class="row">
-                                <div class="col text-center">
+                                <div class="col text-center">   
                                     <ul class="list-inline mb-0">
                                         <li class="list-inline-item pr-4">
                                             <a href="#" class="text-muted"><i class="far fa-share mr-1 text-muted"></i> 131</a>
