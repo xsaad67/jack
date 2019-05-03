@@ -16,6 +16,7 @@
 
     
     @yield('css')
+    
     <style>
         .bg-top{
             background-color: #143354;
