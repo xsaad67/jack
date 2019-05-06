@@ -35,4 +35,9 @@ class Post extends Model
     public function scopeDisableRelationships($query){
         return $query->setEagerLoads([]);
     }
+
+    public function scopeDisplayMainQuotes($query,$page=25)
+    {
+        return $this->quotes()->where(\DB::raw(' length(body)'),'<=',200)->paginate($page);
+    }
 }
