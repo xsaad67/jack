@@ -73,12 +73,22 @@ function checkOnlyYear($string){
 
     $string = trim($string);
     $d = \DateTime::createFromFormat("M d, Y", $string);
-    if(!$d){
+    if(!$d){ 
         return $string;
     }else{
         return $d->format('Y-m-d');
     }
     
+}
+
+function createAcronym($string) {
+    $output = null;
+    $token  = strtok($string, ' ');
+    while ($token !== false) {
+        $output .= $token[0];
+        $token = strtok(' ');
+    }
+    return str_limit($output,2,"");
 }
 
 

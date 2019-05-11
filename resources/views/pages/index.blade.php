@@ -7,18 +7,17 @@
 .sh3{border-left: 5px dashed #ffba08;}
 .sh4{border-left: 5px dashed #202c42;}
 .main-quote{
-    font-size: 30px;
-    margin-bottom: 10px;
-    margin-top: 10px;
+    font-size: 1.2rem!important;
+    line-height: 2rem !important;
 }
 .main-quote>a{
-        color: #fff;
+    color: #67646b;
 }
 .main-quote>:before{
     content: open-quote;
     left: -5px;
-    top: 31px;
-    font-size: 4em;
+    top: 20px;
+    font-size: 3em;
    
 }
 .main-quote>:after{
@@ -32,10 +31,12 @@
     height: 0;
     line-height: 0;
     position: relative;
-    color: #ddd;
+    color:#9e97a7;
+    font-weight: 700;
 }
 
 }
+
 </style>
 
 @endsection
@@ -50,79 +51,55 @@
         </div>
     </div>
 </section>
-<section class="slice slice-lg bg-secondary">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-10 masonry-container"  id="post-data">
 
-                @include('quotes.index')
-                
-                <div class="ajax-load text-center" style="display:none">
-                    <p><img src="http://demo.itsolutionstuff.com/plugin/loader.gif">Loading More post</p>
+{{-- <span class="custom-avatar avatar-sm mr-3 bg-info">WS</span> --}}
+
+<div class="container">
+    <div class="row mt-5">
+        
+    @foreach($quotes as $quote)
+        <div class="col-lg-4">
+
+            {{-- Quote Card --}}
+            <div class="card">
+                <div class="card-header bg-info d-flex align-items-center bg-lighten">
+                    <span class="custom-avatar avatar-xs mr-2 font-size-sm" style="background:#8bc34a!important">{{createAcronym($quote->author->name)}}</span>
+                   
+                    <div><h5 class="card-title"><a href="#" class="font-size-sm">{{$quote->author->name}}</a></h5></div>
                 </div>
-
+                <div class="card-body">
+                    <blockquote class="main-quote">
+                        <a href="{{$quote->link}}"> {{$quote->body}}</a>
+                    </blockquote>
+                    <a href="{{$quote->author->link}}"><cite>{{$quote->author->name}}</cite></a>
+                </div>
+                <div class="card-footer d-flex">
+                    <div class="mr-auto">
+                        <a href="#" class="badge badge-facebook"><i class="ya ya-facebook"></i></a>
+                        <a href="#" class="badge badge-twitter"><i class="ya ya-twitter"></i></a>
+                        <a href="#" class="badge badge-pinterest"><i class="ya ya-pinterest"></i></a>
+                        <a href="#" class="badge badge-reddit"><i class="ya ya-reddit"></i></a>
+                    </div>
+                    <div class="ml-auto">
+                        <button class="btn btn-default btn-icon btn-xs mr-1"><i class="ya ya-heart"></i></button>
+                        <button class="btn btn-default btn-icon btn-xs mr-1"><i class="ya ya-plus"></i></button>
+                    </div>
+                </div>
+                <div class="keywords px-3 py-3">
+                    @php $fuckSake = explode(",",$quote->tags); @endphp
+                    @foreach($fuckSake as $fuck)
+                        <span class="badge badge-secondary mb-1">{{$fuck}}</span>
+                    @endforeach
+                </div>
             </div>
+            {{-- End Quote Card --}}
 
-            <div class="col=lg-2">
-                hello
-            </div>
         </div>
-       
+    @endforeach
+
         
     </div>
-</section>
 
-@endsection
-
-@section('plugins')
-    <script src="/assets/vendor/isotope-layout/dist/isotope.pkgd.min.js"></script>
-    <script src="/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script src="/assets/vendor/%40fancyapps/fancybox/dist/jquery.fancybox.min.js"></script>
-    <script src="/assets/js/infinite-scroll.js"></script>
-@endsection
-
-@section('js')
-
-<script type="text/javascript">
-
-    var page = 1;
-    $(function(){
-    $(window).scroll(function() {
-
-        if($(window).scrollTop() + $(window).height() >= $("main").height()) {
-            page++;
-            loadMoreData(page);
-        }
-    });
-
-
-    });
-   
-
-    function loadMoreData(page){
-      $.ajax(
-            {
-                url: '?page=' + page,
-                type: "get",
-                beforeSend: function()
-                {
-                    $('.ajax-load').show();
-                }
-            })
-            .done(function(data)
-            {
-                if(data.html == " "){
-                    $('.ajax-load').html("No more records found");
-                    return;
-                }
-                $('.ajax-load').hide();
-                $("#post-data").append(data.html);
-            })
-            .fail(function(jqXHR, ajaxOptions, thrownError)
-            {
-                  alert('server not responding...');
-            });
-    }
-</script>
+</div>
 
 @endsection

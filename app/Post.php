@@ -36,8 +36,7 @@ class Post extends Model
         return $query->setEagerLoads([]);
     }
 
-    public function scopeDisplayMainQuotes($query,$page=25)
-    {
+    public function scopeDisplayMainQuotes($query,$page=15){   
         return $this->quotes()->where(\DB::raw(' length(body)'),'<=',200)->paginate($page);
     }
 }

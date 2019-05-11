@@ -9,6 +9,17 @@
     <!-- css: theme -->
     <link rel="stylesheet" href="/css/theme.minaead.css">
     @yield('css')
+    <style>
+        .custom-avatar{
+            font-weight: 600;
+            position: relative;
+            display: inline-flex;
+            color: #fff;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 </head>
 
 <body class="fixed-navbar">
