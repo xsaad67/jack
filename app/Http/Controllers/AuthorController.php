@@ -14,7 +14,11 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        //
+       
+        $authorsListing = \App\Services\SortService::authorsListing();
+        $alphabets = range("A","Z");
+        // return $authorsListing;
+        return view("authors.index",compact("authorsListing","alphabets"));
     }
 
     /**

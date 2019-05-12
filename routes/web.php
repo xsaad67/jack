@@ -12,10 +12,14 @@
 */
 Auth::routes();
 
+Route::resource("/authors","AuthorController");
+
 Route::get('/','PageController@index');
 Route::get('/quote/{slug}','QuoteController@show');
 Route::get('/quote/{id}','QuoteController@edit');
 Route::get('/quote/image/{id}','QuoteController@image');
+
+
 
 Route::resource('/media','MediaController');
 
@@ -25,7 +29,7 @@ Route::get('/image','ImageController@image');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/topics','CrawlLinksController@topics');
-Route::get('/authors','CrawlLinksController@author');
+// Route::get('/authors','CrawlLinksController@author');
 
 Route::get('templateim','ImageController@template');
 
@@ -41,4 +45,4 @@ Route::post('/comment/store','CommentController@store')->name('comment.add');
 //A-Z quote
 Route::get('/links','ZController@links');
 Route::get('/quotes','ZController@quotes');
-Route::get('/authors','ZController@authors');
+// Route::get('/authors','ZController@authors');

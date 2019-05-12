@@ -23,10 +23,16 @@ class CreateAuthorsTable extends Migration
             $table->string("formatBorn")->nullable();
             $table->string("formatDeath")->nullable();
             $table->string("link")->nullable();
+            $table->string('image')->nullable();
             $table->string("source")->nullable();
             $table->timestamps();
         });
     }
+
+
+    //select SUBSTRING(name, 1, 1) as alpha, name from ( select SUBSTRING(name, 1, 1) as alpha, name, (@rn:=if(@prev = SUBSTRING(name, 1, 1), @rn +1, 1)) as rownumb, @prev:= SUBSTRING(name, 1, 1) from ( select SUBSTRING(name, 1, 1) as alpha, name from authors order by alpha, name ) as sortedlist JOIN (select @prev:=NULL, @rn :=0) as vars ) as groupedlist where rownumb<=10 order by 'alpha', 'name';
+    //SELECT SUBSTRING(name, 1, 1) as alpha, name from authors GROUP BY SUBSTRING(name, 0, 2), name order by 'alpha', 'name'
+
 
     /**
      * Reverse the migrations.

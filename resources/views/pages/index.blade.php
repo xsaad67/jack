@@ -86,9 +86,10 @@
                     </div>
                 </div>
                 <div class="keywords px-3 py-3">
+                    {{-- {{ dump($quote->keywords) }} --}}
                     @php $fuckSake = explode(",",$quote->tags); @endphp
                     @foreach($fuckSake as $fuck)
-                        <span class="badge badge-secondary mb-1">{{$fuck}}</span>
+                        <a href="{{str_slug($fuck)}}" class="badge badge-secondary mb-1">{{$fuck}}</a>
                     @endforeach
                 </div>
             </div>

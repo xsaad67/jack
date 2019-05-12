@@ -41,38 +41,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="nav-item dropdown dropdown-lg dropdown-carousel"><a class="nav-link dropdown-toggle" href="games.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Games</a>
-                                <div class="dropdown-menu">
-                                    <div class="container-fluid">
-                                        <div class="owl-carousel" ya-carousel="loop: true;nav: false;dots: false;margin: 10;autoplay: true;lazyLoad: true;items: 7;sm: 3;md: 4">
-                                            <a class="dropdown-item" href="game-post.html"><img src="../../../img.youtube.com/vi/HYrcX8QIIAs/maxresdefault.jpg" alt="God of War">
-                                                <h5 class="dropdown-title">God of War</h5></a>
-                                            <a class="dropdown-item" href="game-post.html"><img src="../../../img.youtube.com/vi/reAPorQHxNQ/maxresdefault.jpg" alt="Marvel's Spider-Man">
-                                                <h5 class="dropdown-title">Marvel's Spider-Man</h5></a>
-                                            <a class="dropdown-item" href="game-post.html"><img src="../../../img.youtube.com/vi/MVTHYMkDvIs/maxresdefault.jpg" alt="Forza Horizon 4">
-                                                <h5 class="dropdown-title">Forza Horizon 4</h5></a>
-                                            <a class="dropdown-item" href="game-post.html"><img src="../../../img.youtube.com/vi/v2YvZCjieR0/maxresdefault.jpg" alt="The Witcher 3: Wild Hunt">
-                                                <h5 class="dropdown-title">The Witcher 3: Wild Hunt</h5></a>
-                                            <a class="dropdown-item" href="game-post.html"><img src="../../../img.youtube.com/vi/gJ56BJ-Ba9E/maxresdefault.jpg" alt="Anthem">
-                                                <h5 class="dropdown-title">Anthem</h5></a>
-                                            <a class="dropdown-item" href="game-post.html"><img src="../../../img.youtube.com/vi/IzltYVmocOM/maxresdefault.jpg" alt="Prey">
-                                                <h5 class="dropdown-title">Prey</h5></a>
-                                            <a class="dropdown-item" href="game-post.html"><img src="../../../img.youtube.com/vi/eh-_gm_61gM/maxresdefault.jpg" alt="Tom Clancy's The Division 2">
-                                                <h5 class="dropdown-title">Tom Clancy's The Division 2</h5></a>
-                                            <a class="dropdown-item" href="game-post.html"><img src="../../../img.youtube.com/vi/8X2kIfS6fb8/maxresdefault.jpg" alt="Cyberpunk 2077">
-                                                <h5 class="dropdown-title">Cyberpunk 2077</h5></a>
-                                            <a class="dropdown-item" href="game-post.html"><img src="../../../img.youtube.com/vi/OWBghlWBbhk/maxresdefault.jpg" alt="Dark Souls Remastered">
-                                                <h5 class="dropdown-title">Dark Souls Remastered</h5></a>
-                                            <a class="dropdown-item" href="game-post.html"><img src="../../../img.youtube.com/vi/kUKrStkG-hE/maxresdefault.jpg" alt="Far Cry 5">
-                                                <h5 class="dropdown-title">Far Cry 5</h5></a>
-                                            <a class="dropdown-item" href="game-post.html"><img src="../../../img.youtube.com/vi/FpB455nPFGk/maxresdefault.jpg" alt="Call of Duty: Black Ops 4">
-                                                <h5 class="dropdown-title">Call of Duty: Black Ops 4</h5></a>
-                                            <a class="dropdown-item" href="game-post.html"><img src="../../../img.youtube.com/vi/SG4hoev5uaI/maxresdefault.jpg" alt="Red Dead Redemption 2">
-                                                <h5 class="dropdown-title">Red Dead Redemption 2</h5></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+                          
                             <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="pages.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
                                 <div class="dropdown-menu">
                                     <div class="dropdown"><a class="dropdown-item" href="games.html">Games</a>
@@ -108,7 +77,7 @@
                                             <g>
                                                 <path stroke="#000" transform="rotate(-77.1923828125 -15.078857421875005,170.79100036621094)" d="m-428.125224,-8.22893l872.19957,0l-3.456666,298.309801c-711.65609,-186.952814 -478.74996,115.206646 -914.849745,50.456411l46.106841,-348.766212z" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#2a2b2d" />
                                             </g>
-                                        </svg><img src="../../../img.youtube.com/vi/SG4hoev5uaI/maxresdefault.jpg" alt=""><a class="btn btn-primary btn-lg btn-rounded btn-shadow" href="shop-product.html">View Game</a></div>
+                                        </svg><a class="btn btn-primary btn-lg btn-rounded btn-shadow" href="shop-product.html">View Game</a></div>
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-6 col-lg-3">
@@ -142,21 +111,22 @@
                                 <div class="dropdown-header mb-0"><i class="ya ya-shopping-cart"></i> Cart (3)</div>
                                 <div class="dropdown-scrollable">
                                     <ul class="dropdown-list">
-                                        <li class="dropdown-list-item"><img class="mr-1" src="../../../static.giantbomb.com/uploads/scale_small/0/1992/3023135-screen%2bshot%2b2018-05-23%2bat%2b7.03.13%2bpm.png" alt="">
-                                            <div class="pl-2"><a class="font-weight-semibold" href="shop-product.html">Battlefield V</a>
+                                        <li class="dropdown-list-item">
+                                            <div class="pl-2">
+                                                <a class="font-weight-semibold" href="shop-product.html">Battlefield V</a>
                                                 <div class="font-size-md text-muted">Quantity: 1</div>
                                                 <div class="font-size-md font-weight-bold mt-1">$75.00</div>
                                             </div>
                                             <button type="button" class="btn btn-link cart-remove"><i class="ya ya-trash"></i></button>
                                         </li>
-                                        <li class="dropdown-list-item"><img class="mr-1" src="../../../static.giantbomb.com/uploads/scale_small/11/118833/2996375-91somf876vl._sl1500_.jpg" alt="">
+                                        <li class="dropdown-list-item">
                                             <div class="pl-2"><a class="font-weight-semibold" href="shop-product.html">God of War</a>
                                                 <div class="font-size-md text-muted">Quantity: 1</div>
                                                 <div class="font-size-md font-weight-bold text-danger mt-1">$49.35</div>
                                             </div>
                                             <button type="button" class="btn btn-link cart-remove"><i class="ya ya-trash"></i></button>
                                         </li>
-                                        <li class="dropdown-list-item"><img class="mr-1" src="../../../static.giantbomb.com/uploads/scale_small/0/3699/2945734-the%2bwitcher%2b3%2b-%2bwild%2bhunt.jpg" alt="">
+                                        <li class="dropdown-list-item">
                                             <div class="pl-2"><a class="font-weight-semibold" href="shop-product.html">The Witcher 3: Wild Hunt</a>
                                                 <div class="font-size-md text-muted">Quantity: 1</div>
                                                 <div class="font-size-md font-weight-bold mt-1">$28.15</div>
@@ -180,6 +150,7 @@
         <!-- end .site-header -->
         <div class="site-content" role="main">
            @yield('content')
+          
         </div>
         <!-- end .site-content -->
         <footer class="site-footer bg-dark">

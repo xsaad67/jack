@@ -9,22 +9,22 @@ use App\CrawlLinks;
 class ZController extends Controller
 {
     
-    public function links(Request $request){
+  public function links(Request $request){
+    dd("completed");
+    ini_set('max_execution_time', 16900);
+    $startPage = is_null($request->page) ? 1 : $request->page;
+    $alphas = range('u', 'z');
+    foreach($alphas as $alpha){
 
-    	ini_set('max_execution_time', 10900);
-    	
-
-    	$startPage = is_null($request->page) ? 1 : $request->page;
-      $alphas = range('k', 'z');
-      foreach($alphas as $alpha){
-
-      	for($i=66;$i<=200;$i++){
+      	for($i=1;$i<=200;$i++){
 
       		$url = "https://www.azquotes.com/quotes/authors/".$alpha."/".$i;
-          // $url = "https://www.azquotes.com/quotes/authors/j/".$i;
       		$crawler = Goutte::request('GET', $url);
 
-      		$rangeToCrawl = $crawler->filter('div.pager > li:nth-last-child(2)')->first()->text();
+      		$rangeToCrawl = ($crawler->filter('div.pager > li:nth-last-child(2)')->count() > 0) ? 
+                      $crawler->filter('div.pager > li:nth-last-child(2)')->first()->text() :
+                      1;
+
       		//Adding data to crawl links
       		$crawler->filter(".authors-page-a .table tbody > tr")->each(function($node) use($i){
 
@@ -49,24 +49,14 @@ class ZController extends Controller
   	    	});
       		if($i==$rangeToCrawl){break;}
       	}  //Ending for loop 
+    }//Ending Foreach 
 
-      }//Ending Foreach 
-
-    } // Ending ZController@links 
+  } // Ending ZController@links 
 
 
-    public function authors(Request $request){
-       $url= "https://www.azquotes.com/quotes/authors/a";
-       $crawler = Goutte::request('GET', $url);
-       $crawler->filter(".table tbody > tr > td:nth-child(2)")->each(function($node){
-           if($node->filter('a')->count() > 0){
-              dump($node->filter('a')->attr("href"));
-              dump($node->filter('a')->text());
-           }else{
-            dump(trim($node->text()));
-           }
-       });
-    }
+  public function authors(Request $request){
+    
+  }
 
     
     

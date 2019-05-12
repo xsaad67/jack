@@ -10,7 +10,7 @@ class Post extends Model
 	use Sluggable;
 
     protected $fillable = ["link"];
-    protected $with = ['author'];
+    protected $with = ['author','keywords'];
 
     public function sluggable() {
         return [ 'source' => 'body' ];
@@ -38,5 +38,10 @@ class Post extends Model
 
     public function scopeDisplayMainQuotes($query,$page=15){   
         return $this->quotes()->where(\DB::raw(' length(body)'),'<=',200)->paginate($page);
+    }
+
+    public function keywords()
+    {
+        return $this->morphToMany('App\Tag', 'taggable');
     }
 }

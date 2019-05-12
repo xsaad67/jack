@@ -13,4 +13,8 @@ class Author extends Model
     public function getNameAttribute(){
         return $this->attributes['name'] = ucwords($this->attributes['name']);
     }
+
+    public static function filteredSort(){
+    	
+    }
 }

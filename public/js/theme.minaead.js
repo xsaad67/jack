@@ -279,61 +279,7 @@
     document.addEventListener("DOMContentLoaded", function() {
         I._init.call()
     });
-    var N = window.path ? window.path : "plugins",
-        x = ".fas",
-        O = ".far",
-        q = ".fab",
-        B = ".fal",
-        D = {
-            CSS: N + "/fontawesome/css/fontawesome.min.css",
-            REGULAR: N + "/fontawesome/css/regular.min.css",
-            BRAND: N + "/fontawesome/css/brands.min.css",
-            SOLID: N + "/fontawesome/css/solid.min.css",
-            LIGHT: N + "/fontawesome/css/light.min.css"
-        },
-        Z = function() {
-            function t() {
-                this._stylesheet = document.createElement("link"), this._stylesheet.rel = "stylesheet", this._stylesheet.href = D.CSS
-            }
-            var e = t.prototype;
-            return e._solid = function() {
-                if (document.querySelector(x)) {
-                    var t = document.createElement("link");
-                    t.rel = "stylesheet", t.href = D.SOLID, document.head.appendChild(t)
-                }
-                return !0
-            }, e._brand = function() {
-                if (document.querySelector(q)) {
-                    var t = document.createElement("link");
-                    t.rel = "stylesheet", t.href = D.BRAND, document.head.appendChild(t)
-                }
-                return !0
-            }, e._light = function() {
-                if (document.querySelector(B)) {
-                    var t = document.createElement("link");
-                    t.rel = "stylesheet", t.href = D.LIGHT, document.head.appendChild(t)
-                }
-                return !0
-            }, e._regular = function() {
-                if (document.querySelector(O)) {
-                    var t = document.createElement("link");
-                    t.rel = "stylesheet", t.href = D.REGULAR, document.head.appendChild(t)
-                }
-                return !0
-            }, e._get = function() {
-                document.head.appendChild(this._stylesheet), this._solid(), this._brand(), this._light(), this._regular()
-            }, t._init = function() {
-                (new t)._get()
-            }, n(t, null, [{
-                key: "VERSION",
-                get: function() {
-                    return "1.0.0"
-                }
-            }]), t
-        }();
-    document.addEventListener("DOMContentLoaded", function() {
-        (document.querySelector(x) || document.querySelector(q) || document.querySelector(O) || document.querySelector(B)) && Z._init.call()
-    });
+    
     var R = "ya-lightbox",
         T = "[" + R + "]",
         H = {
@@ -412,9 +358,9 @@
             var i = t.prototype;
             return i._fix = function() {
                 e(".dropdown-lg").on("hide.bs.dropdown", function() {
-                    document.querySelector(".owl-carousel").classList.add("owl-hide")
+                    // document.querySelector(".owl-carousel").classList.add("owl-hide")
                 }), e(".dropdown-lg").on("show.bs.dropdown", function() {
-                    document.querySelector(".owl-carousel").classList.remove("owl-hide")
+                    // document.querySelector(".owl-carousel").classList.remove("owl-hide")
                 })
             }, i._hover = function() {
                 e(".dropdown > .dropdown-menu > .dropdown").hover(function() {
@@ -611,7 +557,7 @@
         document.querySelectorAll(it).forEach(function(t) {
             nt._init.call(t)
         })
-    }), t.Background = h, t.Carousel = g, t.Disqus = b, t.Embed = C, t.Facebook = k, t.Help = I, t.Icons = Z, t.Lightbox = V, t.Navbar = z, t.Notify = U, t.Progress = Q, t.Sticky = Y, t.Style = tt, t.Svg = nt, Object.defineProperty(t, "__esModule", {
+    }), t.Background = h, t.Carousel = g, t.Disqus = b, t.Embed = C, t.Facebook = k, t.Help = I, t.Lightbox = V, t.Navbar = z, t.Notify = U, t.Progress = Q, t.Sticky = Y, t.Style = tt, t.Svg = nt, Object.defineProperty(t, "__esModule", {
         value: !0
     })
 });
